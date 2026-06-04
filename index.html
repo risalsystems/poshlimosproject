@@ -56,6 +56,25 @@
 
     <!-- Primary Stylesheet -->
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Posh Limousines of Atlanta",
+        "image": "assets/hero_atlanta.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Main St",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30303",
+          "addressCountry": "US"
+        },
+        "telephone": "+1-123-456-7890",
+        "url": "https://www.poshlimosatlanta.com",
+        "areaServed": "Atlanta Metropolitan Area"
+      }
+    </script>
   </head>
   <body>
     <!-- ==========================================================================
@@ -90,6 +109,7 @@
               <svg
                 class="dropdown-chevron"
                 viewBox="0 0 24 24"
+                animatable="true"
                 aria-hidden="true"
               >
                 <path d="M7 10l5 5 5-5z" />
@@ -176,10 +196,10 @@
             </ul>
           </div>
 
-          <a href="#reviews" class="nav-link">Reviews</a>
-          <a href="#about" class="nav-link">About Us</a>
+          <a href="index.html#reviews" class="nav-link">Reviews</a>
+          <a href="about.html" class="nav-link">About Us</a>
           <a
-            href="#contact"
+            href="index.html#contact"
             class="nav-link btn btn-outline"
             style="padding: 8px 20px"
             >Book SUV</a
@@ -235,6 +255,71 @@
             style="border-color: var(--accent); color: var(--accent)"
             >Our Services</a
           >
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       2b. WHY TRUST US SECTION
+       ========================================================================== -->
+    <section class="trust-section" id="why-trust">
+      <div class="container">
+        <div class="trust-header">
+          <h2 class="trust-title">
+            Why Trust <span class="trust-brand">Posh Limousines</span>?
+          </h2>
+        </div>
+
+        <div class="trust-grid">
+          <!-- Reason 1 -->
+          <div class="trust-card reveal">
+            <div class="trust-card-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
+                />
+              </svg>
+            </div>
+            <h3>Fully Licensed & Insured</h3>
+            <p>
+              Our fleet and drivers are fully licensed and insured, ensuring
+              your safety and peace of mind.
+            </p>
+          </div>
+
+          <!-- Reason 2 -->
+          <div class="trust-card reveal reveal-delay-1">
+            <div class="trust-card-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                />
+              </svg>
+            </div>
+            <h3>Background-Checked Chauffeurs</h3>
+            <p>
+              Every driver is thoroughly vetted, background-screened, and
+              trained in professional client etiquette — so you always ride with
+              confidence.
+            </p>
+          </div>
+
+          <!-- Reason 3 -->
+          <div class="trust-card reveal reveal-delay-2">
+            <div class="trust-card-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <h3>Expert Atlanta Local Knowledge</h3>
+            <p>
+              No GPS dependency here. Our chauffeur knows every corridor,
+              shortcut, and traffic pattern across Metro Atlanta — getting you
+              there on time, every time.
+            </p>
+          </div>
         </div>
       </div>
     </section>

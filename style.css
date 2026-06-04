@@ -284,6 +284,146 @@ header {
 }
 
 /* ==========================================================================
+   Why Trust Us Section — Mobile First
+   ========================================================================== */
+.trust-section {
+  padding: 40px 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.trust-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.trust-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.trust-brand {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* Single column on mobile */
+.trust-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.trust-card {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 28px 20px;
+  text-align: center;
+  transition:
+    border-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+.trust-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+
+.trust-card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background-color: var(--accent-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-card-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent);
+}
+
+.trust-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.trust-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Tablet — 2 columns */
+@media (min-width: 600px) {
+  .trust-section {
+    padding: 50px 0;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .trust-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop — 3 columns */
+@media (min-width: 1024px) {
+  .trust-section {
+    padding: 60px 0;
+  }
+
+  .trust-header {
+    margin-bottom: 48px;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .trust-title {
+    font-size: 1.6rem;
+  }
+
+  .trust-card {
+    padding: 36px 28px;
+  }
+
+  .trust-card-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .trust-card-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .trust-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .trust-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
    Services Dropdown
    ========================================================================== */
 .nav-dropdown {
@@ -1141,6 +1281,307 @@ body.light-theme .details-page-header::before {
 }
 
 /* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+.faq-section {
+  padding: 70px 0 90px;
+  border-top: 1px solid var(--border);
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.faq-header span {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.faq-header h2 {
+  font-size: 2rem;
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.faq-item:has(.faq-question[aria-expanded="true"]) {
+  border-color: var(--accent);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: color var(--transition-speed) ease;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-chevron {
+  width: 20px;
+  height: 20px;
+  fill: var(--accent);
+  flex-shrink: 0;
+  transition: transform var(--transition-speed) ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-answer.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer > p {
+  overflow: hidden;
+  padding: 0 24px 20px;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ==========================================================================
+   About Page — Owner Bio + Photo Grid
+   ========================================================================== */
+.about-owner-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: flex-start;
+  padding: 70px 0 50px;
+}
+
+.about-label {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.about-owner-bio h2 {
+  font-size: 2.2rem;
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+
+.about-owner-bio p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 22px;
+  line-height: 1.75;
+}
+
+.about-owner-values {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.owner-value-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.owner-value-item svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Owner Photo */
+.about-owner-photo-wrap {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.about-owner-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--bg-secondary);
+  border: 2px dashed var(--accent);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+}
+
+.about-owner-photo-placeholder svg {
+  width: 60px;
+  height: 60px;
+  fill: var(--accent);
+  opacity: 0.45;
+}
+
+.about-owner-photo-placeholder p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.about-owner-photo-placeholder span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.about-owner-name-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.about-owner-name-card strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.about-owner-name-card em {
+  font-size: 0.88rem;
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ==========================================================================
+   About Page — Bottom Mission & Highlights
+   ========================================================================== */
+.about-bottom-section {
+  padding: 60px 0 90px;
+  border-top: 1px solid var(--border);
+}
+
+.about-mission {
+  max-width: 780px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.about-mission h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-mission p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.about-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.about-highlight-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 30px 24px;
+  text-align: center;
+  transition:
+    border-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+.about-highlight-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+.about-highlight-icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--accent-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.about-highlight-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent);
+}
+
+.about-highlight-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-highlight-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
    Footer Section
    ========================================================================== */
 footer {
@@ -1414,6 +1855,24 @@ body.light-theme .social-icon-btn:hover {
     position: static;
   }
 
+  /* About page responsive */
+  .about-owner-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px 0 30px;
+  }
+
+  .about-owner-photo-wrap {
+    position: static;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1454,6 +1913,10 @@ body.light-theme .social-icon-btn:hover {
 
   .contact-col {
     padding: 25px 20px;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-bottom {

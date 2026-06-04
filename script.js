@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navDropdown && dropdownToggle) {
     // Toggle open on click (for touch & keyboard users)
     dropdownToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
       const isOpen = navDropdown.classList.toggle("open");
       dropdownToggle.setAttribute("aria-expanded", isOpen);
     });
@@ -126,6 +127,30 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.add("active");
     });
   }
+
+  // ==========================================================================
+  // 3.5 FAQ Accordion
+  // ==========================================================================
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      const answer = btn.nextElementSibling;
+
+      // Close all other open items first
+      document
+        .querySelectorAll(".faq-question[aria-expanded='true']")
+        .forEach((openBtn) => {
+          if (openBtn !== btn) {
+            openBtn.setAttribute("aria-expanded", "false");
+            openBtn.nextElementSibling.classList.remove("open");
+          }
+        });
+
+      // Toggle this item
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      answer.classList.toggle("open", !isOpen);
+    });
+  });
 
   // ==========================================================================
   // 4. Web3Forms AJAX Contact Form Submission
