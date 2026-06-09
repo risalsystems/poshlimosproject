@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+    <title><%= locals.title %></title>
 
     <!-- Meta Descriptions for SEO -->
-    <meta name="description" content="{{ description }}" />
-    {% if keywords %}
-    <meta name="keywords" content="{{ keywords }}" />
-    {% endif %}
+    <meta name="description" content="<%= locals.description %>" />
+    <% if (locals.keywords) { %>
+    <meta name="keywords" content="<%= locals.keywords %>" />
+    <% } %>
     <meta name="author" content="Posh Limousines of Atlanta" />
-    {% if canonical %}
-    <link rel="canonical" href="{{ canonical }}" />
-    {% endif %}
+    <% if (locals.canonical) { %>
+    <link rel="canonical" href="<%= locals.canonical %>" />
+    <% } %>
 
     <!-- Apple Webkit Meta Configuration -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -22,23 +22,23 @@
     <link rel="apple-touch-icon" href="assets/hero_atlanta.png" />
 
     <!-- Open Graph Protocol (OG) Metadata -->
-    <meta property="og:title" content="{{ ogTitle if ogTitle else title }}" />
-    <meta property="og:description" content="{{ ogDescription if ogDescription else description }}" />
-    <meta property="og:image" content="{{ ogImage if ogImage else 'assets/hero_atlanta.png' }}" />
-    <meta property="og:url" content="{{ canonical if canonical else 'https://www.poshlimosatlanta.com' }}" />
+    <meta property="og:title" content="<%= locals.ogTitle || locals.title %>" />
+    <meta property="og:description" content="<%= locals.ogDescription || locals.description %>" />
+    <meta property="og:image" content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>" />
+    <meta property="og:url" content="<%= locals.canonical || 'https://www.poshlimosatlanta.com' %>" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Posh Limousines of Atlanta" />
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ ogTitle if ogTitle else title }}" />
-    <meta name="twitter:description" content="{{ ogDescription if ogDescription else description }}" />
-    <meta name="twitter:image" content="{{ ogImage if ogImage else 'assets/hero_atlanta.png' }}" />
+    <meta name="twitter:title" content="<%= locals.ogTitle || locals.title %>" />
+    <meta name="twitter:description" content="<%= locals.ogDescription || locals.description %>" />
+    <meta name="twitter:image" content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>" />
 
     <!-- Primary Stylesheet -->
     <link rel="stylesheet" href="style.css" />
 
-    {% if isHomePage %}
+    <% if (locals.isHomePage) { %>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,15 +58,6 @@
         "areaServed": "Atlanta Metropolitan Area"
       }
     </script>
-    {% endif %}
+    <% } %>
   </head>
   <body>
-    {% include "navbar.njk" %}
-
-    {{ content | safe }}
-
-    {% include "footer.njk" %}
-
-    <script src="script.js"></script>
-  </body>
-</html>

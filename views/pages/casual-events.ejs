@@ -1,13 +1,5 @@
----
-layout: base.njk
-title: "Casual Events, Concerts & Sporting Events | Posh Limousines of Atlanta"
-description: "Premium black SUV transportation for Atlanta concerts, sporting events, and nights out. Skip the parking lines with Posh Limousines of Atlanta. Starting at $120/hr."
-ogTitle: "Casual Events, Concerts & Sporting Events | Posh Limousines of Atlanta"
-ogDescription: "Arrive at Mercedes-Benz Stadium, State Farm Arena, or Truist Park in a premium Cadillac Escalade or Lincoln Navigator."
-ogImage: "assets/service_casual.png"
-navPage: "services"
-permalink: "casual-events.html"
----
+<%- include('../partials/layout_start.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <!-- ==========================================================================
        PAGE HEADER BANNER
@@ -160,51 +152,5 @@ permalink: "casual-events.html"
         </div>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you provide transportation to Atlanta sporting events?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We provide premium black SUV transportation to and from Atlanta's major sporting venues, including Mercedes-Benz Stadium, State Farm Arena, and Truist Park."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you take a group out for a night in Midtown or Buckhead?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. Our black SUVs seat up to 7 passengers, making them ideal for group nights out in Midtown, Buckhead, or Downtown Atlanta."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the hourly rate for casual event transportation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Casual event transportation starts at $120 per hour with a minimum booking window covering multi-stop evenings, concert runs, and event transportation within Metro Atlanta."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you do concert pickups and drop-offs in Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We handle concert transportation to all major Atlanta venues including State Farm Arena, Ameris Bank Amphitheatre, and Coca-Cola Roxy."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I make multiple stops during a casual event booking?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Our hourly casual event service is designed for multi-stop evenings. Your chauffeur stays with your group for the full booking window and handles all routing between stops."
-          }
-        }
-      ]
-    }
-    </script>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/layout_end.ejs') %>

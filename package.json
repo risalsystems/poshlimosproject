@@ -4,8 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve",
+    "build": "node build.js",
+    "start": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "@11ty/eleventy": "^3.1.6"
   },
   "dependencies": {
+    "ejs": "^6.0.1",
     "i": "^0.3.7"
   }
 }

@@ -1,13 +1,5 @@
----
-layout: base.njk
-title: "Executive Corporate Events & Roadshows | Posh Limousines of Atlanta"
-description: "Premium executive black SUV transportation for corporate events, business travel, and roadshows in Atlanta. Reliable and professional chauffeur services. Starting at $135/hr."
-ogTitle: "Executive Corporate Events & Roadshows | Posh Limousines of Atlanta"
-ogDescription: "Tailored executive transport for Atlanta businesses. Clean Cadillac Escalades and professional chauffeurs."
-ogImage: "assets/service_corporate.png"
-navPage: "services"
-permalink: "corporate-events.html"
----
+<%- include('../partials/layout_start.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <!-- ==========================================================================
        PAGE HEADER BANNER
@@ -160,51 +152,5 @@ permalink: "corporate-events.html"
         </div>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you provide executive transportation for corporate clients in Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We specialize in executive ground transportation for corporate clients across Atlanta, including Buckhead, Midtown, and Downtown business corridors."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the hourly rate for corporate event transportation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Corporate event transportation starts at $135 per hour. We offer flexible packages for single executives, client groups, and multi-vehicle corporate events. Corporate billing accounts are available for recurring needs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer corporate account billing for recurring bookings?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We offer tailored corporate accounts for businesses that require regular executive transportation, simplifying billing and guaranteeing vehicle priority."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you handle transportation for a full conference or multi-day business event?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We coordinate ground logistics for multi-day corporate events and conferences in Atlanta, including airport transfers, hotel-to-venue shuttles, and executive transfers throughout the event."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you ensure discretion and professionalism for executive clients?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Every chauffeur is personally vetted, background-checked, and trained in executive client etiquette including discretion, punctuality, and professional dress code."
-          }
-        }
-      ]
-    }
-    </script>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/layout_end.ejs') %>

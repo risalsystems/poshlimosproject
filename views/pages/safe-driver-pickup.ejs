@@ -1,13 +1,5 @@
----
-layout: base.njk
-title: "Safe Driver & Long-Distance Pickup | Posh Limousines of Atlanta"
-description: "Safe driver pickups and long-distance luxury chauffeur services in Atlanta. Travel securely in a black Cadillac Escalade or Lincoln Navigator. Rates starting at $180."
-ogTitle: "Safe Driver & Long-Distance Pickup | Posh Limousines of Atlanta"
-ogDescription: "Travel long distance or book a designated chauffeur when you need reliable, safe luxury transport in Atlanta."
-ogImage: "assets/service_safedriver.png"
-navPage: "services"
-permalink: "safe-driver-pickup.html"
----
+<%- include('../partials/layout_start.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <!-- ==========================================================================
        PAGE HEADER BANNER
@@ -133,7 +125,7 @@ permalink: "safe-driver-pickup.html"
                         <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. Our safe driver service covers long-distance routes as well — including trips from Atlanta to destinations like Savannah, Charlotte, or Birmingham. The Lincoln Navigator's spacious, quiet cabin makes it ideal for productive or comfortable long-haul travel. Contact us to book a long-distance route.</p>
+                        <p>Yes. Our safe driver service covers long-distance routes as well — including trips from Atlanta to destinations like Savannah, Charlotte, or Birmingham. The Lincoln Navigator's spacious, quiet cabin makes it ideal for comfortable long-haul travel. Contact us to book a long-distance route.</p>
                     </div>
                 </div>
 
@@ -160,51 +152,5 @@ permalink: "safe-driver-pickup.html"
         </div>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a safe driver pickup service?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A safe driver pickup is a designated driver service where a professional chauffeur picks you up — typically after a night out or when you prefer not to drive. You travel in a premium black SUV with a vetted, licensed chauffeur who knows Atlanta's roads."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does a safe driver pickup cost in Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Safe driver pickup service starts at $180. The final price depends on distance, time of night, and whether it is a round-trip or multi-stop arrangement."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use this service for long-distance trips from Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Our safe driver service covers long-distance routes including trips from Atlanta to destinations like Savannah, Charlotte, or Birmingham."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is this service available late at night or on weekends?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We offer late-night and weekend pickups to accommodate nights out, events, and celebrations across Atlanta. We recommend booking in advance for Friday and Saturday evenings."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is this different from Uber or Lyft?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our chauffeurs are background-checked, professionally trained, and personally vetted. You ride in a late-model premium SUV with no surge pricing and an expert knowledge of Atlanta traffic routes."
-          }
-        }
-      ]
-    }
-    </script>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/layout_end.ejs') %>

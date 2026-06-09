@@ -1,13 +1,5 @@
----
-layout: base.njk
-title: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta"
-description: "Luxury black SUV transportation for Atlanta weddings, proms, and anniversaries. Arrive in style in a Cadillac Escalade or Lincoln Navigator. Rates starting at $150/hr."
-ogTitle: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta"
-ogDescription: "Turn your special day into a luxury experience. Red carpet service and professional chauffeurs in Atlanta."
-ogImage: "assets/service_formal.png"
-navPage: "services"
-permalink: "formal-celebrations.html"
----
+<%- include('../partials/layout_start.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <!-- ==========================================================================
        PAGE HEADER BANNER
@@ -160,51 +152,5 @@ permalink: "formal-celebrations.html"
         </div>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you provide wedding transportation in Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We provide luxury black SUV wedding transportation across Atlanta and the surrounding Metro area. Our vehicles are immaculately presented and our chauffeurs are dressed in executive suit attire."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the rate for formal celebration transportation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Formal celebration packages start at $150 per hour with a minimum booking window. Pricing varies based on event duration, number of vehicles, and any custom requests."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide prom limo service in Atlanta?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We offer premium black SUV transportation for prom night in Atlanta. Our vehicles seat up to 7 passengers comfortably. We recommend booking several weeks in advance as availability fills quickly during spring prom season."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can the vehicle be decorated for our event?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Light tasteful decorations such as ribbon, floral accents, or custom signage can be arranged with advance notice. Please discuss your decoration preferences at the time of booking."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How early should I book for a wedding or formal event?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For weddings and large formal events, we strongly recommend booking 4 to 8 weeks in advance, especially for spring and fall weekends when demand is highest."
-          }
-        }
-      ]
-    }
-    </script>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/layout_end.ejs') %>

@@ -1,13 +1,5 @@
----
-layout: base.njk
-title: "Airport Pickups & Transfers | Posh Limousines of Atlanta"
-description: "Premium airport chauffeur and black SUV pickup services in Atlanta. Travel to and from Hartsfield-Jackson (ATL) or private aviation terminals in comfort. Starting at $115."
-ogTitle: "Airport Pickups & Transfers | Posh Limousines of Atlanta"
-ogDescription: "Luxury black SUV transfers for ATL Airport and private jet terminals. Flight monitoring and Meet & Greet services."
-ogImage: "assets/service_airport.png"
-navPage: "services"
-permalink: "airport-pickups.html"
----
+<%- include('../partials/layout_start.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <!-- ==========================================================================
        PAGE HEADER BANNER
@@ -160,51 +152,5 @@ permalink: "airport-pickups.html"
         </div>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you service Hartsfield-Jackson Atlanta International Airport (ATL)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We provide luxury black SUV pickup and drop-off service for all commercial concourses at Hartsfield-Jackson Atlanta International Airport (ATL), including domestic and international terminals. We also service private aviation FBOs and regional executive airports across the Metro Atlanta area."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does an airport pickup in Atlanta cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Airport transfers start at $115 for a one-way flat-rate pickup or drop-off to/from Hartsfield-Jackson (ATL). Pricing may vary based on destination distance and time of day."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens if my flight is delayed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We monitor your flight in real time. If your flight is delayed or arrives early, your chauffeur adjusts accordingly. We include up to 45 minutes of complimentary wait time after your scheduled arrival for domestic flights, and 60 minutes for international arrivals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer Meet and Greet service inside the terminal?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Our Meet and Greet upgrade places your chauffeur inside the terminal at baggage claim, holding a personalized name sign. They will assist with your luggage and escort you directly to the waiting vehicle."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How far in advance should I book an airport transfer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We recommend booking at least 24 hours in advance to guarantee vehicle availability. For early morning flights or during peak travel periods, booking 48 to 72 hours ahead is strongly advised."
-          }
-        }
-      ]
-    }
-    </script>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/layout_end.ejs') %>
