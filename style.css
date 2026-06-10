@@ -1696,9 +1696,116 @@ body.light-theme .social-icon-btn:hover {
   padding-top: 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  gap: 16px;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.footer-bottom-left,
+.footer-bottom-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-bottom-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-legal-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--accent);
+}
+
+.footer-divider {
+  color: var(--border);
+}
+
+.powered-by-luxury {
+  font-family: var(--font-display, serif);
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.footer-credit {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-credit a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Legal Pages (TOS & Privacy Policy)
+   ========================================================================== */
+.legal-single-col {
+  display: block;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.legal-effective-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.details-main-content h2 {
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.details-main-content ul {
+  padding-left: 20px;
+  line-height: 1.9;
+  color: var(--text-secondary, var(--text-muted));
+}
+
+.legal-nav-links {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-outline-small {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn-outline-small:hover {
+  background: var(--accent);
+  color: #121215;
 }
 
 /* ==========================================================================
@@ -1921,7 +2028,17 @@ body.light-theme .social-icon-btn:hover {
 
   .footer-bottom {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
     text-align: center;
+  }
+
+  .footer-bottom-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
   }
 }
