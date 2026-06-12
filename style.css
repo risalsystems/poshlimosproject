@@ -1125,6 +1125,29 @@ body.light-theme .form-group select {
   border: 1px solid rgba(239, 68, 68, 0.3);
   display: block;
 }
+.btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+}
+.form-divider::before,
+.form-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.form-submit-row {
+  margin-top: 8px;
+}
 
 /* ==========================================================================
    Details Pages Layout Styling

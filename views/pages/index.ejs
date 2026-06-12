@@ -1,403 +1,549 @@
-<%- include('../partials/layout_start.ejs') %>
-<%- include('../partials/nav.ejs') %>
+<%- include('../partials/layout_start.ejs') %> <%-
+include('../partials/nav.ejs') %>
 
-    <!-- ==========================================================================
+<!-- ==========================================================================
        2. STUNNING HERO SECTION
        ========================================================================== -->
-    <section
-      class="hero"
-      id="hero"
-      style="background-image: url(&quot;assets/hero_atlanta.png&quot;)"
-    >
-      <div class="hero-content">
-        <span class="hero-tagline">Redefine Your Travel Experience</span>
-        <h1 class="hero-title">Posh Limousines <span>of Atlanta</span></h1>
-        <p class="hero-desc">
-          Atlanta's premier black SUV chauffeur service. Enjoy unmatched luxury,
-          premium comfort, and absolute reliability in our Cadillac Escalades
-          and Lincoln Navigators.
-        </p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn">Reserve SUV</a>
-          <a
-            href="#services"
-            class="btn btn-outline"
-            style="border-color: var(--accent); color: var(--accent)"
-            >Our Services</a
-          >
-        </div>
-      </div>
-    </section>
+<section
+  class="hero"
+  id="hero"
+  style="background-image: url(&quot;assets/hero_atlanta.png&quot;)"
+>
+  <div class="hero-content">
+    <span class="hero-tagline">Redefine Your Travel Experience</span>
+    <h1 class="hero-title">Posh Limousines <span>of Atlanta</span></h1>
+    <p class="hero-desc">
+      Atlanta's premier black SUV chauffeur service. Enjoy unmatched luxury,
+      premium comfort, and absolute reliability in our Cadillac Escalades and
+      Lincoln Navigators.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn" onclick="openCalendly('home')"
+        >Reserve SUV</a
+      >
+      <a
+        href="#services"
+        class="btn btn-outline"
+        style="border-color: var(--accent); color: var(--accent)"
+        >Our Services</a
+      >
+    </div>
+  </div>
+</section>
 
-    <!-- ==========================================================================
+<!-- ==========================================================================
        2b. WHY TRUST US SECTION
        ========================================================================== -->
-    <section class="trust-section" id="why-trust">
-      <div class="container">
-        <div class="trust-header">
-          <h2 class="trust-title">
-            Why Trust <span class="trust-brand">Posh Limousines</span>?
-          </h2>
+<section class="trust-section" id="why-trust">
+  <div class="container">
+    <div class="trust-header">
+      <h2 class="trust-title">
+        Why Trust <span class="trust-brand">Posh Limousines</span>?
+      </h2>
+    </div>
+
+    <div class="trust-grid">
+      <!-- Reason 1 -->
+      <div class="trust-card reveal">
+        <div class="trust-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
+            />
+          </svg>
         </div>
-
-        <div class="trust-grid">
-          <!-- Reason 1 -->
-          <div class="trust-card reveal">
-            <div class="trust-card-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
-              </svg>
-            </div>
-            <h3>Fully Licensed &amp; Insured</h3>
-            <p>Our fleet and drivers are fully licensed and commercially insured, ensuring your safety and complete peace of mind on every ride.</p>
-          </div>
-
-          <!-- Reason 2 -->
-          <div class="trust-card reveal reveal-delay-1">
-            <div class="trust-card-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-              </svg>
-            </div>
-            <h3>Background-Checked Chauffeurs</h3>
-            <p>Every driver is thoroughly vetted, background-screened, and trained in professional client etiquette — so you always ride with confidence.</p>
-          </div>
-
-          <!-- Reason 3 -->
-          <div class="trust-card reveal reveal-delay-2">
-            <div class="trust-card-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
-            </div>
-            <h3>Expert Atlanta Local Knowledge</h3>
-            <p>No GPS dependency here. Our chauffeur knows every corridor, shortcut, and traffic pattern across Metro Atlanta — getting you there on time, every time.</p>
-          </div>
-        </div>
+        <h3>Fully Licensed &amp; Insured</h3>
+        <p>
+          Our fleet and drivers are fully licensed and commercially insured,
+          ensuring your safety and complete peace of mind on every ride.
+        </p>
       </div>
-    </section>
 
-    <!-- ==========================================================================
+      <!-- Reason 2 -->
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+            />
+          </svg>
+        </div>
+        <h3>Background-Checked Chauffeurs</h3>
+        <p>
+          Every driver is thoroughly vetted, background-screened, and trained in
+          professional client etiquette — so you always ride with confidence.
+        </p>
+      </div>
+
+      <!-- Reason 3 -->
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+            />
+          </svg>
+        </div>
+        <h3>Expert Atlanta Local Knowledge</h3>
+        <p>
+          No GPS dependency here. Our chauffeur knows every corridor, shortcut,
+          and traffic pattern across Metro Atlanta — getting you there on time,
+          every time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
        3. SERVICES SECTION
        ========================================================================== -->
-    <section class="services-section" id="services">
-      <div class="container">
-        <div class="section-header reveal">
-          <span>Executive Experience</span>
-          <h2>Our Premium Services</h2>
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span>Executive Experience</span>
+      <h2>Our Premium Services</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1: Airport Pickups -->
+      <article class="service-card reveal">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">From $115</div>
+          <img
+            src="assets/service_airport.png"
+            alt="Black Lincoln Navigator SUV parked at private aviation hangar"
+          />
         </div>
-
-        <div class="services-grid">
-          <!-- Service 1: Airport Pickups -->
-          <article class="service-card reveal">
-            <div class="service-img-wrapper">
-              <div class="service-price-badge">From $115</div>
-              <img src="assets/service_airport.png" alt="Black Lincoln Navigator SUV parked at private aviation hangar" />
-            </div>
-            <div class="service-card-body">
-              <h3>Airport Pickups</h3>
-              <p>
-                Streamlined, luxurious transfers to and from Hartsfield-Jackson
-                (ATL) and private regional aviation terminals. Real-time flight
-                tracking included.
-              </p>
-              <a href="airport-pickups.html" class="service-link">
-                Explore Details
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Service 2: Formal Celebrations -->
-          <article class="service-card reveal reveal-delay-1">
-            <div class="service-img-wrapper">
-              <div class="service-price-badge">From $150/hr</div>
-              <img src="assets/service_formal.png" alt="Black Cadillac Escalade luxury SUV decorated for a wedding celebration" />
-            </div>
-            <div class="service-card-body">
-              <h3>Formal Celebrations</h3>
-              <p>
-                Make your weddings, proms, and anniversaries unforgettable. Red
-                carpet service, chilled amenities, and an elegant black SUV
-                presentation.
-              </p>
-              <a href="formal-celebrations.html" class="service-link">
-                Explore Details
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Service 3: Safe Driver Pickup -->
-          <article class="service-card reveal reveal-delay-2">
-            <div class="service-img-wrapper">
-              <div class="service-price-badge">From $180</div>
-              <img src="assets/service_safedriver.png" alt="Luxury SUV cabin interior looking through to professional chauffeur steering" />
-            </div>
-            <div class="service-card-body">
-              <h3>Safe Driver Pickup</h3>
-              <p>
-                Responsible long-distance travel, night-out safety, or scheduled
-                pickups when you prefer not to drive. Sit back and enjoy the
-                luxury cabin.
-              </p>
-              <a href="safe-driver-pickup.html" class="service-link">
-                Explore Details
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Service 4: Casual Events -->
-          <article class="service-card reveal">
-            <div class="service-img-wrapper">
-              <div class="service-price-badge">From $120/hr</div>
-              <img src="assets/service_casual.png" alt="Black Lincoln Navigator SUV parked outside Atlanta Mercedes-Benz Stadium at night" />
-            </div>
-            <div class="service-card-body">
-              <h3>Casual Events</h3>
-              <p>
-                Premium group or individual travel to Atlanta sporting events,
-                concerts, or a night out in Midtown. Avoid parking hassles
-                completely.
-              </p>
-              <a href="casual-events.html" class="service-link">
-                Explore Details
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <!-- Service 5: Corporate Events -->
-          <article class="service-card reveal reveal-delay-1">
-            <div class="service-img-wrapper">
-              <div class="service-price-badge">From $135/hr</div>
-              <img src="assets/service_corporate.png" alt="Black Cadillac Escalade executive transit driving past Buckhead glass high rises" />
-            </div>
-            <div class="service-card-body">
-              <h3>Corporate Events</h3>
-              <p>
-                Reliable executive transport for business meetings, conferences,
-                and roadshows in Buckhead and Downtown. Tailored corporate
-                accounts available.
-              </p>
-              <a href="corporate-events.html" class="service-link">
-                Explore Details
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-                </svg>
-              </a>
-            </div>
-          </article>
+        <div class="service-card-body">
+          <h3>Airport Pickups</h3>
+          <p>
+            Streamlined, luxurious transfers to and from Hartsfield-Jackson
+            (ATL) and private regional aviation terminals. Real-time flight
+            tracking included.
+          </p>
+          <a href="airport-pickups.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- ==========================================================================
+      <!-- Service 2: Formal Celebrations -->
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">From $150/hr</div>
+          <img
+            src="assets/service_formal.png"
+            alt="Black Cadillac Escalade luxury SUV decorated for a wedding celebration"
+          />
+        </div>
+        <div class="service-card-body">
+          <h3>Formal Celebrations</h3>
+          <p>
+            Make your weddings, proms, and anniversaries unforgettable. Red
+            carpet service, chilled amenities, and an elegant black SUV
+            presentation.
+          </p>
+          <a href="formal-celebrations.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 3: Safe Driver Pickup -->
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">From $180</div>
+          <img
+            src="assets/service_safedriver.png"
+            alt="Luxury SUV cabin interior looking through to professional chauffeur steering"
+          />
+        </div>
+        <div class="service-card-body">
+          <h3>Safe Driver Pickup</h3>
+          <p>
+            Responsible long-distance travel, night-out safety, or scheduled
+            pickups when you prefer not to drive. Sit back and enjoy the luxury
+            cabin.
+          </p>
+          <a href="safe-driver-pickup.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 4: Casual Events -->
+      <article class="service-card reveal">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">From $120/hr</div>
+          <img
+            src="assets/service_casual.png"
+            alt="Black Lincoln Navigator SUV parked outside Atlanta Mercedes-Benz Stadium at night"
+          />
+        </div>
+        <div class="service-card-body">
+          <h3>Casual Events</h3>
+          <p>
+            Premium group or individual travel to Atlanta sporting events,
+            concerts, or a night out in Midtown. Avoid parking hassles
+            completely.
+          </p>
+          <a href="casual-events.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 5: Corporate Events -->
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">From $135/hr</div>
+          <img
+            src="assets/service_corporate.png"
+            alt="Black Cadillac Escalade executive transit driving past Buckhead glass high rises"
+          />
+        </div>
+        <div class="service-card-body">
+          <h3>Corporate Events</h3>
+          <p>
+            Reliable executive transport for business meetings, conferences, and
+            roadshows in Buckhead and Downtown. Tailored corporate accounts
+            available.
+          </p>
+          <a href="corporate-events.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
        4. REVIEWS SECTION
        ========================================================================== -->
-    <section class="reviews-section" id="reviews">
-      <div class="container">
-        <div class="section-header reveal">
-          <span>Client Testimonials</span>
-          <h2>What Our Guests Say</h2>
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <span>Client Testimonials</span>
+      <h2>What Our Guests Say</h2>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Review 1 -->
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
         </div>
-
-        <div class="reviews-grid">
-          <!-- Review 1 -->
-          <div class="review-card reveal">
-            <div class="review-stars">
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-            </div>
-            <p class="review-text">
-              "Absolute first-class experience! The Cadillac Escalade was
-              immaculate, stocked with cold waters, and our chauffeur arrived 10
-              minutes early. Posh Limousines is now our go-to for corporate
-              travel in Atlanta."
-            </p>
-            <div class="review-client">
-              <div class="client-avatar">MV</div>
-              <div class="client-info">
-                <h4>Marcus V.</h4>
-                <span>Executive VP, Tech Global</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 2 -->
-          <div class="review-card reveal reveal-delay-1">
-            <div class="review-stars">
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-            </div>
-            <p class="review-text">
-              "We booked Posh Limousines for our wedding anniversary. The
-              service was impeccable. The chauffeur opened doors, assisted with
-              bags, and drove safely. The black SUV was stunning. Worth every
-              penny."
-            </p>
-            <div class="review-client">
-              <div class="client-avatar">SL</div>
-              <div class="client-info">
-                <h4>Sarah & David L.</h4>
-                <span>Atlanta Residents</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 3 -->
-          <div class="review-card reveal reveal-delay-2">
-            <div class="review-stars">
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-            </div>
-            <p class="review-text">
-              "Used their Safe Driver long-distance pickup to travel to
-              Savannah. The Lincoln Navigator was extremely spacious, quiet, and
-              comfortable. I could do remote work with ease during the drive."
-            </p>
-            <div class="review-client">
-              <div class="client-avatar">RH</div>
-              <div class="client-info">
-                <h4>Dr. Robert H.</h4>
-                <span>Physician</span>
-              </div>
-            </div>
+        <p class="review-text">
+          "Absolute first-class experience! The Cadillac Escalade was
+          immaculate, stocked with cold waters, and our chauffeur arrived 10
+          minutes early. Posh Limousines is now our go-to for corporate travel
+          in Atlanta."
+        </p>
+        <div class="review-client">
+          <div class="client-avatar">MV</div>
+          <div class="client-info">
+            <h4>Marcus V.</h4>
+            <span>Executive VP, Tech Global</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ==========================================================================
+      <!-- Review 2 -->
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </div>
+        <p class="review-text">
+          "We booked Posh Limousines for our wedding anniversary. The service
+          was impeccable. The chauffeur opened doors, assisted with bags, and
+          drove safely. The black SUV was stunning. Worth every penny."
+        </p>
+        <div class="review-client">
+          <div class="client-avatar">SL</div>
+          <div class="client-info">
+            <h4>Sarah & David L.</h4>
+            <span>Atlanta Residents</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+        </div>
+        <p class="review-text">
+          "Used their Safe Driver long-distance pickup to travel to Savannah.
+          The Lincoln Navigator was extremely spacious, quiet, and comfortable.
+          I could do remote work with ease during the drive."
+        </p>
+        <div class="review-client">
+          <div class="client-avatar">RH</div>
+          <div class="client-info">
+            <h4>Dr. Robert H.</h4>
+            <span>Physician</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
        5. ABOUT US & CONTACT US SECTION
        ========================================================================== -->
-    <section class="about-contact-section" id="about">
-      <div class="container about-contact-split">
-        <!-- Left Side: About Us -->
-        <div class="about-col reveal">
-          <span>Who We Are</span>
-          <h3>Posh Limousines of Atlanta</h3>
-          <p>
-            Posh Limousines of Atlanta is a premier transportation provider
-            dedicated to delivering exceptional black SUV chauffeur services. We
-            specialize in point-to-point transfers, hourly charters, airport
-            luxury transit, and customizable packages for formal celebrations.
-          </p>
-          <p>
-            Our operation is strictly professional, utilizing a late-model fleet
-            of immaculate black Cadillac Escalades and Lincoln Navigators. Every
-            driver is vetting-cleared, background-checked, and highly trained in
-            client etiquette and route efficiency.
-          </p>
-          <ul class="about-features">
-            <li>
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-              <span>Late-model premium Cadillac and Lincoln SUVs</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-              <span>Fully licensed, certified, and commercially insured</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-              </svg>
-              <span>Professional chauffeurs in executive suit attire</span>
-            </li>
-          </ul>
+<section class="about-contact-section" id="about">
+  <div class="container about-contact-split">
+    <!-- Left Side: About Us -->
+    <div class="about-col reveal">
+      <span>Who We Are</span>
+      <h3>Posh Limousines of Atlanta</h3>
+      <p>
+        Posh Limousines of Atlanta is a premier transportation provider
+        dedicated to delivering exceptional black SUV chauffeur services. We
+        specialize in point-to-point transfers, hourly charters, airport luxury
+        transit, and customizable packages for formal celebrations.
+      </p>
+      <p>
+        Our operation is strictly professional, utilizing a late-model fleet of
+        immaculate black Cadillac Escalades and Lincoln Navigators. Every driver
+        is vetting-cleared, background-checked, and highly trained in client
+        etiquette and route efficiency.
+      </p>
+      <ul class="about-features">
+        <li>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+          <span>Late-model premium Cadillac and Lincoln SUVs</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+          <span>Fully licensed, certified, and commercially insured</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+          </svg>
+          <span>Professional chauffeurs in executive suit attire</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right Side: Contact / Book Your Ride -->
+    <div class="contact-col reveal" id="contact">
+      <h3>Contact Us</h3>
+      <p>
+        Fill out the details below to request a quote or confirm a booking. We
+        will follow up immediately.
+      </p>
+
+      <!-- Fast-path CTA -->
+      <button
+        type="button"
+        class="btn btn-full"
+        id="contact-calendly-btn"
+        onclick="openCalendly('home')"
+      >
+        Book Now
+      </button>
+      <div class="form-divider"><span>or fill out the form below</span></div>
+
+      <!-- Web3Forms Integration -->
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="contact-form"
+        class="contact-form"
+      >
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+        <input
+          type="hidden"
+          name="subject"
+          value="New Ride Booking Request - Posh Limousines"
+        />
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          style="display: none"
+        />
+
+        <div class="form-group">
+          <label for="form-name">Full Name</label>
+          <input
+            type="text"
+            name="name"
+            id="form-name"
+            placeholder="John Doe"
+            required
+          />
         </div>
 
-        <!-- Right Side: Contact / Book Your Ride -->
-        <div class="contact-col reveal" id="contact">
-          <h3>Book Your Ride</h3>
-          <p>
-            Fill out the details below to request a quote or confirm a booking.
-            We will follow up immediately.
-          </p>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="form-email">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="form-email"
+              placeholder="john@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="form-phone">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              id="form-phone"
+              placeholder="(404) 555-0199"
+              required
+            />
+          </div>
+        </div>
 
-          <!-- Web3Forms Integration -->
-          <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
-            id="contact-form"
-            class="contact-form"
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="form-service">Required Service</label>
+            <select name="service_type" id="form-service" required>
+              <option value="" disabled selected>Select a Service</option>
+              <option value="Airport Pickups">Airport Pickups</option>
+              <option value="Formal Celebrations">Formal Celebrations</option>
+              <option value="Safe Driver Pickup">Safe Driver Pickup</option>
+              <option value="Casual Events">Casual Events</option>
+              <option value="Corporate Events">Corporate Events</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="form-date">Pickup Date</label>
+            <input type="date" name="pickup_date" id="form-date" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="form-message"
+            >Special Instructions / Routing Details</label
           >
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-            <input type="hidden" name="subject" value="New Ride Booking Request - Posh Limousines" />
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
-
-            <div class="form-group">
-              <label for="form-name">Full Name</label>
-              <input type="text" name="name" id="form-name" placeholder="John Doe" required />
-            </div>
-
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="form-email">Email Address</label>
-                <input type="email" name="email" id="form-email" placeholder="john@example.com" required />
-              </div>
-              <div class="form-group">
-                <label for="form-phone">Phone Number</label>
-                <input type="tel" name="phone" id="form-phone" placeholder="(404) 555-0199" required />
-              </div>
-            </div>
-
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="form-service">Required Service</label>
-                <select name="service_type" id="form-service" required>
-                  <option value="" disabled selected>Select a Service</option>
-                  <option value="Airport Pickups">Airport Pickups</option>
-                  <option value="Formal Celebrations">Formal Celebrations</option>
-                  <option value="Safe Driver Pickup">Safe Driver Pickup</option>
-                  <option value="Casual Events">Casual Events</option>
-                  <option value="Corporate Events">Corporate Events</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="form-date">Pickup Date</label>
-                <input type="date" name="pickup_date" id="form-date" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="form-message">Special Instructions / Routing Details</label>
-              <textarea
-                name="message"
-                id="form-message"
-                placeholder="Provide details such as pickup/drop-off addresses, flight numbers, or special timing preferences."
-                required
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn" id="form-submit-btn">Send Booking Request</button>
-            <div id="form-response-msg" class="form-message"></div>
-          </form>
+          <textarea
+            name="message"
+            id="form-message"
+            placeholder="Provide details such as pickup/drop-off addresses, flight numbers, or special timing preferences."
+            required
+          ></textarea>
         </div>
-      </div>
-    </section>
 
-<%- include('../partials/footer.ejs') %>
-<%- include('../partials/layout_end.ejs') %>
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-full" id="form-submit-btn">
+            Send Message
+          </button>
+        </div>
+        <div id="form-response-msg" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer.ejs') %> <%-
+include('../partials/layout_end.ejs') %>
