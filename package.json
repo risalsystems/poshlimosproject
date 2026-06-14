@@ -2,11 +2,10 @@
   "name": "poshlimos-project",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
   "scripts": {
-    "build": "node build.js",
-    "start": "node build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -15,16 +14,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Rwalker106/PoshLimos-Project/issues"
   },
   "homepage": "https://github.com/Rwalker106/PoshLimos-Project#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.6"
-  },
-  "dependencies": {
-    "ejs": "^6.0.1",
-    "i": "^0.3.7"
+    "ejs": "^3.1.10",
+    "vite": "^6.3.5"
   }
 }
