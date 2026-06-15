@@ -91,6 +91,21 @@ window.openCalendly = openCalendly;
 Pure static assets that must sit at the root of the deployed website (e.g. `sitemap.xml`, `robots.txt`) are stored in [src/public/](file:///c:/Users/rwalk/Documents/JavaScript/Node/PoshLimos%20Project/src/public/).
 * Since `src/public/` is copied into `.vite-staging/public/`, Vite treats this folder as its static assets directory and transfers its contents directly to the root of `dist/` untouched.
 
+### Infinite HMR Loop Prevention (Dev Mode)
+Because Vite's development server root is set to the staging directory `.vite-staging/`, any writes to this folder normally trigger Vite's filesystem watcher. 
+
+Under the dev server middleware, requesting any HTML page triggers `renderAll()`, which pre-renders and writes compiled HTML files into `.vite-staging/`. If the filesystem watcher triggers a reload upon seeing these HTML files write, it starts a recursive feedback loop (Request → Render → Watcher Trigger → Reload → Request).
+
+To prevent this, the watch settings in [vite.config.js](file:///c:/Users/rwalk/Documents/JavaScript/Node/PoshLimos%20Project/vite.config.js) ignore `.html` files in the staging directory:
+```javascript
+server: {
+  watch: {
+    ignored: [`${STAGE}/**/*.html`],
+  },
+}
+```
+This breaks the infinite reload loop while keeping HMR active for CSS and JS assets, ensuring smooth local development.
+
 ---
 
 ## 🌐 Netlify Deployment

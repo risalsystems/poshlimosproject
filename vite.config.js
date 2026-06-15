@@ -18,7 +18,7 @@ const PAGES = [
   "tos",
 ];
 
-const SRC   = resolve(__dirname, "src");
+const SRC = resolve(__dirname, "src");
 const STAGE = resolve(__dirname, ".vite-staging");
 
 // ── Pre-render all EJS pages to clean HTML in .vite-staging/ ─────────────────
@@ -27,8 +27,8 @@ const STAGE = resolve(__dirname, ".vite-staging");
 async function renderAll() {
   fs.cpSync(SRC, STAGE, { recursive: true, force: true });
   for (const page of PAGES) {
-    const src  = resolve(SRC, `${page}.html`);
-    const out  = resolve(STAGE, `${page}.html`);
+    const src = resolve(SRC, `${page}.html`);
+    const out = resolve(STAGE, `${page}.html`);
     const data = pageData[page] ?? {};
     const html = await ejs.renderFile(src, data, { filename: src });
     fs.writeFileSync(out, html, "utf-8");
@@ -39,12 +39,23 @@ export default defineConfig({
   // Vite root points at the staged (pre-rendered) files, not src/
   root: STAGE,
 
+  server: {
+    watch: {
+      // Prevent an infinite HMR reload loop: renderAll() writes HTML to
+      // .vite-staging/, Vite detects the change and tells the browser to
+      // reload, the reload triggers renderAll() again, and so on.
+      // Ignoring staged HTML files breaks the cycle while leaving CSS/JS
+      // hot-module-replacement intact.
+      ignored: [`${STAGE}/**/*.html`],
+    },
+  },
+
   build: {
-    outDir:    resolve(__dirname, "dist"),
+    outDir: resolve(__dirname, "dist"),
     emptyOutDir: true,
     rollupOptions: {
       input: Object.fromEntries(
-        PAGES.map((p) => [p, resolve(STAGE, `${p}.html`)])
+        PAGES.map((p) => [p, resolve(STAGE, `${p}.html`)]),
       ),
     },
   },
@@ -62,10 +73,11 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use(async (req, res, next) => {
           const urlPath = (req.url ?? "/").split("?")[0];
-          const page = urlPath
-            .replace(/^\//, "")
-            .replace(/\/$/, "")
-            .replace(/\.html$/, "") || "index";
+          const page =
+            urlPath
+              .replace(/^\//, "")
+              .replace(/\/$/, "")
+              .replace(/\.html$/, "") || "index";
           if (PAGES.includes(page)) {
             await renderAll();
           }
