@@ -16,8 +16,6 @@
     <% } %>
 
     <!-- Apple Webkit Meta Configuration -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Posh Limos" />
     <link rel="apple-touch-icon" href="assets/hero_atlanta.png" />
 
@@ -40,31 +38,32 @@
     <!-- Calendly link widget begin -->
     <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 
-    <% if (locals.isHomePage) { %>
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Posh Limousines of Atlanta",
-        "image": "assets/hero_atlanta.png",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "123 Main St",
-          "addressLocality": "Atlanta",
-          "addressRegion": "GA",
-          "postalCode": "30303",
-          "addressCountry": "US"
-        },
-        "telephone": "+1-123-456-7890",
-        "url": "https://www.poshlimosatlanta.com",
-        "areaServed": "Atlanta Metropolitan Area"
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Posh Limousines of Atlanta",
+      "image": "https://www.poshlimosatlanta.com/assets/hero_atlanta.png",
+      "description": "Atlanta's premier black SUV chauffeur service. Professional transportation featuring Cadillac Escalades and Lincoln Navigators for airport pickups, corporate events, weddings, and more. Fully licensed and commercially insured.",
+      "url": "https://www.poshlimosatlanta.com",
+      "telephone": "+1-123-456-7890",
+      "priceRange": "$$-$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Main St",
+        "addressLocality": "Atlanta",
+        "addressRegion": "GA",
+        "postalCode": "30303",
+        "addressCountry": "US"
+      },
+      "areaServed": "Atlanta Metropolitan Area"
+    }
+    </script>
+    <% if (locals.pageSchema) { %>
+    <script type="application/ld+json">
+      <%- JSON.stringify(locals.pageSchema, null, 2) %>
     </script>
     <% } %>
+    <script src="https://calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
   </head>
-  <!-- Calendly link widget begin -->
-  <script src="https://calendly.com/assets/external/widget.js" 
-  type="text/javascript" defer>
-  </script>
-  <!-- Calendly link widget end -->
   <body>

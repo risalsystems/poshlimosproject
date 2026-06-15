@@ -44,9 +44,26 @@ body.light-theme {
   --input-bg: #f4f4f6;
   --input-border: rgba(0, 0, 0, 0.15);
 }
+/* ==========================================================================
+  Skip Link for Accessibility
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
 /* ==========================================================================
-   Base Styles & Resets
+  Base Styles & Resets
    ========================================================================== */
 *,
 *::before,
