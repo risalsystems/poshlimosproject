@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "render": "node scripts/render-ejs.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -21,6 +22,6 @@
   "homepage": "https://github.com/Rwalker106/PoshLimos-Project#readme",
   "devDependencies": {
     "ejs": "^3.1.10",
-    "vite": "^6.3.5"
+    "vite": "^8.0.0"
   }
 }

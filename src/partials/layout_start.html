@@ -23,7 +23,7 @@
     <meta property="og:title" content="<%= locals.ogTitle || locals.title %>" />
     <meta property="og:description" content="<%= locals.ogDescription || locals.description %>" />
     <meta property="og:image" content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>" />
-    <meta property="og:url" content="<%= locals.canonical || 'https://www.poshlimosatlanta.com' %>" />
+    <meta property="og:url" content="<%= locals.canonical || 'https://www.atlantaposhlimos.com' %>" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Posh Limousines of Atlanta" />
 
@@ -35,6 +35,9 @@
 
     <!-- Primary Stylesheet -->
     <link rel="stylesheet" href="style.css" />
+    <% if (locals.heroImage) { %>
+    <link rel="preload" as="image" href="<%= locals.heroImage %>">
+    <% } %>
     <!-- Calendly link widget begin -->
     <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
 
@@ -43,9 +46,9 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Posh Limousines of Atlanta",
-      "image": "https://www.poshlimosatlanta.com/assets/hero_atlanta.png",
-      "description": "Atlanta's premier black SUV chauffeur service. Professional transportation featuring Cadillac Escalades and Lincoln Navigators for airport pickups, corporate events, weddings, and more. Fully licensed and commercially insured.",
-      "url": "https://www.poshlimosatlanta.com",
+      "image": "https://www.atlantaposhlimos.com/assets/hero_atlanta.png",
+      "description": "Atlanta's premier black SUV chauffeur service. Professional transportation featuring Lincoln Navigators, Chevy Suburbans, and Tahoes for airport pickups, corporate events, weddings, and more. Fully licensed and commercially insured.",
+      "url": "https://www.atlantaposhlimos.com",
       "telephone": "+1-123-456-7890",
       "priceRange": "$$-$$$",
       "address": {

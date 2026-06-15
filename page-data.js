@@ -1,38 +1,40 @@
 // ── Per-page metadata ──────────────────────────────────────────────────────────
 // Consumed by vite.config.js to inject EJS locals into each HTML entry point.
-// Keys match the HTML filename stem (e.g. "airport-pickups" for airport-pickups.html).
+// Keys match the HTML filename stem (e.g. "airport-transfers" for airport-transfers.html).
 
 const pageData = {
   index: {
     title: "Posh Limousines of Atlanta | Premium Black SUV Chauffeur Service",
     description:
-      "Experience premium luxury travel with Posh Limousines of Atlanta. Professional chauffeur services featuring black Cadillac Escalades and Lincoln Navigators for Airport Pickups, Weddings, Corporate Events, Safe Driver transport, and Casual Outings. Fully licensed and insured.",
+      "Experience premium luxury travel with Posh Limousines of Atlanta. Professional chauffeur services featuring Lincoln Navigators, Chevy Suburbans, and Tahoes for Airport Transfers, Weddings, Corporate Events, Safe Driver transport, and Casual Outings. Fully licensed and insured.",
     keywords:
-      "limousine service atlanta, black SUV service atlanta, airport pickup atlanta, luxury chauffeur atlanta, private driver buckhead, wedding transportation atlanta, corporate limo service, cadillac escalade service, lincoln navigator chauffeur",
-    canonical: "https://www.poshlimosatlanta.com",
+      "limousine service atlanta, black SUV service atlanta, airport pickup atlanta, luxury chauffeur atlanta, private driver buckhead, wedding transportation atlanta, corporate limo service, lincoln navigator chauffeur, chevy suburban chauffeur atlanta",
+    canonical: "https://www.atlantaposhlimos.com",
     ogTitle: "Posh Limousines of Atlanta | Premium Black SUV Chauffeur Service",
     ogDescription:
       "Sleek black executive SUVs and professional chauffeurs in Atlanta. Catering to airport, wedding, corporate, and hourly charters. Fully licensed & insured.",
     ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
     navPage: "home",
     isHomePage: true,
     pageSchema: {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Posh Limousines of Atlanta",
-      "url": "https://www.poshlimosatlanta.com",
+      "url": "https://www.atlantaposhlimos.com",
     },
   },
 
-  "airport-pickups": {
-    title: "Airport Pickups & Transfers | Posh Limousines of Atlanta",
+  "airport-transfers": {
+    title: "Airport Transfers — Arrivals & Departures | Posh Limousines of Atlanta",
     description:
-      "Premium airport chauffeur and black SUV pickup services in Atlanta. Travel to and from Hartsfield-Jackson (ATL) or private aviation terminals in comfort. Starting at $115.",
-    canonical: "https://www.poshlimosatlanta.com/airport-pickups",
-    ogTitle: "Airport Pickups & Transfers | Posh Limousines of Atlanta",
+      "Premium black SUV airport transfer service in Atlanta. Arrivals and departures from Hartsfield-Jackson (ATL) and private aviation terminals. Real-time flight tracking, flat-rate fares, and Meet & Greet available.",
+    canonical: "https://www.atlantaposhlimos.com/airport-transfers",
+    ogTitle: "Airport Transfers | Arrivals & Departures | Posh Limousines of Atlanta",
     ogDescription:
-      "Luxury black SUV transfers for ATL Airport and private jet terminals. Flight monitoring and Meet & Greet services.",
+      "Luxury black SUV transfers to and from ATL Airport and private jet terminals. Flat-rate fares, real-time flight tracking, and Meet & Greet service.",
     ogImage: "assets/service_airport.png",
+    heroImage: "assets/service_airport.png",
     navPage: "services",
     isHomePage: false,
     pageSchema: [
@@ -45,7 +47,7 @@ const pageData = {
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
@@ -54,7 +56,7 @@ const pageData = {
           "priceCurrency": "USD",
           "description": "Starting price for one-way airport transfer to/from ATL",
         },
-        "url": "https://www.poshlimosatlanta.com/airport-pickups",
+        "url": "https://www.atlantaposhlimos.com/airport-transfers",
       },
       {
         "@context": "https://schema.org",
@@ -64,13 +66,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Airport Pickups",
-            "item": "https://www.poshlimosatlanta.com/airport-pickups",
+            "name": "Airport Transfers",
+            "item": "https://www.atlantaposhlimos.com/airport-transfers",
           },
         ],
       },
@@ -126,12 +128,13 @@ const pageData = {
   "casual-events": {
     title: "Casual Events, Concerts & Sporting Events | Posh Limousines of Atlanta",
     description:
-      "Premium black SUV transportation for Atlanta concerts, sporting events, and nights out. Skip the parking lines with Posh Limousines of Atlanta. Starting at $120/hr.",
-    canonical: "https://www.poshlimosatlanta.com/casual-events",
+      "Premium black SUV transportation for Atlanta concerts, sporting events, and The Masters in Augusta. Skip the parking and traffic with Posh Limousines of Atlanta. Starting at $120/hr.",
+    canonical: "https://www.atlantaposhlimos.com/casual-events",
     ogTitle: "Casual Events, Concerts & Sporting Events | Posh Limousines of Atlanta",
     ogDescription:
-      "Arrive at Mercedes-Benz Stadium, State Farm Arena, or Truist Park in a premium Cadillac Escalade or Lincoln Navigator.",
+      "Arrive at Mercedes-Benz Stadium, State Farm Arena, Truist Park, or Augusta National for The Masters in a premium Lincoln Navigator, Chevy Suburban, or Tahoe.",
     ogImage: "assets/service_casual.png",
+    heroImage: "assets/service_casual.png",
     navPage: "services",
     isHomePage: false,
     pageSchema: [
@@ -140,11 +143,11 @@ const pageData = {
         "@type": "Service",
         "name": "Casual Events & Night Out Transportation",
         "description":
-          "Premium black SUV transportation for Atlanta concerts, sporting events, and nights out. Dedicated hourly charter with multi-stop flexibility. Serving Mercedes-Benz Stadium, State Farm Arena, Truist Park, Midtown, Buckhead, and beyond.",
+          "Premium black SUV transportation for Atlanta concerts, sporting events, and nights out. Dedicated hourly charter with multi-stop flexibility. Serving Mercedes-Benz Stadium, State Farm Arena, Truist Park, Augusta National Golf Club (The Masters), Midtown, Buckhead, and beyond.",
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
@@ -153,7 +156,7 @@ const pageData = {
           "priceCurrency": "USD",
           "description": "Starting hourly rate for casual event transportation",
         },
-        "url": "https://www.poshlimosatlanta.com/casual-events",
+        "url": "https://www.atlantaposhlimos.com/casual-events",
       },
       {
         "@context": "https://schema.org",
@@ -163,13 +166,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Casual Events",
-            "item": "https://www.poshlimosatlanta.com/casual-events",
+            "item": "https://www.atlantaposhlimos.com/casual-events",
           },
         ],
       },
@@ -226,11 +229,12 @@ const pageData = {
     title: "Executive Corporate Events & Roadshows | Posh Limousines of Atlanta",
     description:
       "Premium executive black SUV transportation for corporate events, business travel, and roadshows in Atlanta. Reliable and professional chauffeur services. Starting at $135/hr.",
-    canonical: "https://www.poshlimosatlanta.com/corporate-events",
+    canonical: "https://www.atlantaposhlimos.com/corporate-events",
     ogTitle: "Executive Corporate Events & Roadshows | Posh Limousines of Atlanta",
     ogDescription:
-      "Tailored executive transport for Atlanta businesses. Clean Cadillac Escalades and professional chauffeurs.",
+      "Tailored executive transport for Atlanta businesses. Clean Lincoln Navigators, Chevy Suburbans, and Tahoes with professional chauffeurs.",
     ogImage: "assets/service_corporate.png",
+    heroImage: "assets/service_corporate.png",
     navPage: "services",
     isHomePage: false,
     pageSchema: [
@@ -243,7 +247,7 @@ const pageData = {
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
@@ -252,7 +256,7 @@ const pageData = {
           "priceCurrency": "USD",
           "description": "Starting hourly rate for corporate event transportation",
         },
-        "url": "https://www.poshlimosatlanta.com/corporate-events",
+        "url": "https://www.atlantaposhlimos.com/corporate-events",
       },
       {
         "@context": "https://schema.org",
@@ -262,13 +266,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Corporate Events",
-            "item": "https://www.poshlimosatlanta.com/corporate-events",
+            "item": "https://www.atlantaposhlimos.com/corporate-events",
           },
         ],
       },
@@ -324,12 +328,13 @@ const pageData = {
   "formal-celebrations": {
     title: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta",
     description:
-      "Luxury black SUV transportation for Atlanta weddings, proms, and anniversaries. Arrive in style in a Cadillac Escalade or Lincoln Navigator. Rates starting at $150/hr.",
-    canonical: "https://www.poshlimosatlanta.com/formal-celebrations",
+      "Luxury black SUV transportation for Atlanta weddings, proms, and anniversaries. Arrive in style in a Lincoln Navigator, Chevy Suburban, or Tahoe. Rates starting at $150/hr.",
+    canonical: "https://www.atlantaposhlimos.com/formal-celebrations",
     ogTitle: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta",
     ogDescription:
       "Turn your special day into a luxury experience. Red carpet service and professional chauffeurs in Atlanta.",
     ogImage: "assets/service_formal.png",
+    heroImage: "assets/service_formal.png",
     navPage: "services",
     isHomePage: false,
     pageSchema: [
@@ -342,7 +347,7 @@ const pageData = {
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
@@ -351,7 +356,7 @@ const pageData = {
           "priceCurrency": "USD",
           "description": "Starting hourly rate for formal celebration transportation",
         },
-        "url": "https://www.poshlimosatlanta.com/formal-celebrations",
+        "url": "https://www.atlantaposhlimos.com/formal-celebrations",
       },
       {
         "@context": "https://schema.org",
@@ -361,13 +366,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Formal Celebrations",
-            "item": "https://www.poshlimosatlanta.com/formal-celebrations",
+            "item": "https://www.atlantaposhlimos.com/formal-celebrations",
           },
         ],
       },
@@ -423,12 +428,13 @@ const pageData = {
   "safe-driver-pickup": {
     title: "Safe Driver & Long-Distance Pickup | Posh Limousines of Atlanta",
     description:
-      "Safe driver pickups and long-distance luxury chauffeur services in Atlanta. Travel securely in a black Cadillac Escalade or Lincoln Navigator. Rates starting at $180.",
-    canonical: "https://www.poshlimosatlanta.com/safe-driver-pickup",
+      "Safe driver pickups and long-distance luxury chauffeur services in Atlanta. Travel securely in a Lincoln Navigator, Chevy Suburban, or Tahoe. Rates starting at $180.",
+    canonical: "https://www.atlantaposhlimos.com/safe-driver-pickup",
     ogTitle: "Safe Driver & Long-Distance Pickup | Posh Limousines of Atlanta",
     ogDescription:
       "Travel long distance or book a designated chauffeur when you need reliable, safe luxury transport in Atlanta.",
     ogImage: "assets/service_safedriver.png",
+    heroImage: "assets/service_safedriver.png",
     navPage: "services",
     isHomePage: false,
     pageSchema: [
@@ -441,7 +447,7 @@ const pageData = {
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
@@ -450,7 +456,7 @@ const pageData = {
           "priceCurrency": "USD",
           "description": "Starting flat rate for safe driver pickup service",
         },
-        "url": "https://www.poshlimosatlanta.com/safe-driver-pickup",
+        "url": "https://www.atlantaposhlimos.com/safe-driver-pickup",
       },
       {
         "@context": "https://schema.org",
@@ -460,13 +466,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Safe Driver Pickup",
-            "item": "https://www.poshlimosatlanta.com/safe-driver-pickup",
+            "item": "https://www.atlantaposhlimos.com/safe-driver-pickup",
           },
         ],
       },
@@ -495,7 +501,7 @@ const pageData = {
             "name": "Can I use this service for long-distance trips from Atlanta?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Our safe driver service covers long-distance routes as well — including trips from Atlanta to destinations like Savannah, Charlotte, or Birmingham. The Lincoln Navigator's spacious, quiet cabin makes it ideal for comfortable long-haul travel. Contact us to book a long-distance route.",
+              "text": "Yes. Our safe driver service covers long-distance routes as well — including trips from Atlanta to destinations like Savannah, Charlotte, or Birmingham. Our SUVs' spacious, quiet cabins make them ideal for comfortable long-haul travel. Contact us to book a long-distance route.",
             },
           },
           {
@@ -519,15 +525,222 @@ const pageData = {
     ],
   },
 
+  "signature-accounts": {
+    title: "Signature Accounts | Recurring Chauffeur Service | Posh Limousines of Atlanta",
+    description:
+      "Posh Limousines of Atlanta's Signature Account program is designed for weekly, bi-monthly, and monthly recurring clients — including annual Masters badge holders. Enjoy priority scheduling, consistent chauffeur assignment, locked-in rates, and automatic Posh Preferred rewards eligibility.",
+    canonical: "https://www.atlantaposhlimos.com/signature-accounts",
+    ogTitle: "Signature Accounts | Posh Limousines of Atlanta",
+    ogDescription:
+      "Dedicated recurring chauffeur service for loyal Atlanta clients. Priority scheduling, preferred driver consistency, simplified billing, and Posh Preferred rewards.",
+    ogImage: "assets/service_corporate.png",
+    heroImage: "assets/service_corporate.png",
+    navPage: "services",
+    isHomePage: false,
+    pageSchema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Signature Accounts — Recurring Chauffeur Service",
+        "description":
+          "Dedicated recurring transportation service for weekly, bi-monthly, and monthly clients of Posh Limousines of Atlanta. Priority dispatch, preferred chauffeur assignment, locked-in rates, and consolidated billing.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Posh Limousines of Atlanta",
+          "url": "https://www.atlantaposhlimos.com",
+        },
+        "areaServed": "Atlanta Metropolitan Area",
+        "url": "https://www.atlantaposhlimos.com/signature-accounts",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.atlantaposhlimos.com",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Signature Accounts",
+            "item": "https://www.atlantaposhlimos.com/signature-accounts",
+          },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Signature Account at Posh Limousines of Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Signature Account is a recurring transportation arrangement for clients who need Posh Limousines on a regular basis — weekly, bi-monthly, or monthly. Your routes, preferences, and billing details are kept on file, and your rides are prioritized in our dispatch schedule.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "How often do I need to ride to qualify for a Signature Account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no strict minimum. Signature Accounts are open to any client who rides on a predictable recurring schedule, whether that's twice a week or once a month. Contact us and we'll tailor an arrangement to your schedule.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Are Signature Account clients eligible for Posh Preferred referral rewards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Signature Account clients are automatically enrolled in our Posh Preferred referral rewards program. For every 10 single trips — or 5 round trips — you refer to Posh Limousines, you receive a 25% discount on your next booking.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "How does billing work for a Signature Account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Signature Account clients can choose between weekly or monthly invoicing. Accepted payment methods include Cash, Venmo, Zelle, and major credit cards (a small processing fee applies to card payments).",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Can I have the same chauffeur assigned for every ride?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We do our best to assign a consistent preferred chauffeur to Signature Account clients. All chauffeurs are vetted, trained, and briefed on your preferences — so the experience remains seamless regardless of who is behind the wheel.",
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  "posh-preferred": {
+    title: "Posh Preferred | Referral Rewards Program | Posh Limousines of Atlanta",
+    description:
+      "Posh Preferred is an exclusive referral rewards program by Posh Limousines of Atlanta. Refer 10 trips (or 5 round trips) and earn 25% off your next booking. Automatically available to all Signature Account clients.",
+    canonical: "https://www.atlantaposhlimos.com/posh-preferred",
+    ogTitle: "Posh Preferred | Referral Rewards | Posh Limousines of Atlanta",
+    ogDescription:
+      "Earn 25% off for every 10 trips (or 5 round trips) you refer to Posh Limousines of Atlanta. Exclusive rewards for our most loyal clients.",
+    ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
+    navPage: "services",
+    isHomePage: false,
+    pageSchema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Posh Preferred — Referral Rewards Program",
+        "description":
+          "Exclusive referral rewards program for loyal Posh Limousines of Atlanta clients. Earn a 25% discount on your next booking for every 10 single trips (or 5 round trips) referred. Open to all active Signature Account holders.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Posh Limousines of Atlanta",
+          "url": "https://www.atlantaposhlimos.com",
+        },
+        "url": "https://www.atlantaposhlimos.com/posh-preferred",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.atlantaposhlimos.com",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Posh Preferred",
+            "item": "https://www.atlantaposhlimos.com/posh-preferred",
+          },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I join the Posh Preferred referral rewards program?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All active Signature Account clients are automatically enrolled in Posh Preferred. If you are not yet a Signature Account client, opening one is the first step. You can also contact us directly — if your booking history qualifies you, we will invite you to join.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "How many referrals do I need for the Posh Preferred discount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You earn a 25% discount on your next booking for every 10 single trips (or 5 round trips) completed by clients you refer to Posh Limousines of Atlanta. Simply ask your referral to mention your name when they book.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a limit to how many Posh Preferred discounts I can earn?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. There is no cap on the number of Posh Preferred discounts you can earn. For every additional 10 single trips (or 5 round trips) you refer, you earn another 25% discount on a future booking.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Can the Posh Preferred discount be applied to any service?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The 25% Posh Preferred discount can be applied to any single booking — airport pickup, corporate event, formal celebration, casual outing, or safe driver pickup. It cannot be combined with other active promotions.",
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  about: {
+    title: "About Us | Posh Limousines of Atlanta",
+    description:
+      "Learn about Posh Limousines of Atlanta's service standard, chauffeur vetting process, confidentiality commitment, and coverage area. Premium black SUV transportation built on reliability and discretion.",
+    canonical: "https://www.atlantaposhlimos.com/about",
+    ogTitle: "About Posh Limousines of Atlanta | Our Standard. Our Promise.",
+    ogDescription:
+      "97% on-time arrival. Vetted chauffeurs. Absolute discretion. Learn what sets Posh Limousines of Atlanta apart from rideshare and standard car services.",
+    ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
+    navPage: "about",
+    isHomePage: false,
+    pageSchema: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Posh Limousines of Atlanta",
+      "description":
+        "Posh Limousines of Atlanta's service standard, chauffeur vetting process, confidentiality practices, and Metro Atlanta coverage area.",
+      "url": "https://www.atlantaposhlimos.com/about",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Posh Limousines of Atlanta",
+        "url": "https://www.atlantaposhlimos.com",
+      },
+    },
+  },
+
   tos: {
     title: "Terms of Service | Posh Limousines of Atlanta",
     description:
       "Read the Terms of Service for Posh Limousines of Atlanta. Understand our booking policies, cancellation terms, passenger conduct guidelines, and liability limitations.",
-    canonical: "https://www.poshlimosatlanta.com/tos",
+    canonical: "https://www.atlantaposhlimos.com/tos",
     ogTitle: "Terms of Service | Posh Limousines of Atlanta",
     ogDescription:
       "Terms and conditions governing the use of Posh Limousines of Atlanta's premium chauffeur services.",
     ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
     navPage: "",
     isHomePage: false,
     pageSchema: [
@@ -537,11 +750,11 @@ const pageData = {
         "name": "Terms of Service",
         "description":
           "Terms and conditions governing the use of Posh Limousines of Atlanta's premium chauffeur services, including booking policies, cancellation terms, and liability limitations.",
-        "url": "https://www.poshlimosatlanta.com/tos",
+        "url": "https://www.atlantaposhlimos.com/tos",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
       },
       {
@@ -552,13 +765,13 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Terms of Service",
-            "item": "https://www.poshlimosatlanta.com/tos",
+            "item": "https://www.atlantaposhlimos.com/tos",
           },
         ],
       },
@@ -569,11 +782,12 @@ const pageData = {
     title: "Privacy Policy | Posh Limousines of Atlanta",
     description:
       "Learn how Posh Limousines of Atlanta collects, uses, and protects your personal information. Read our full Privacy Policy here.",
-    canonical: "https://www.poshlimosatlanta.com/privacy-policy",
+    canonical: "https://www.atlantaposhlimos.com/privacy-policy",
     ogTitle: "Privacy Policy | Posh Limousines of Atlanta",
     ogDescription:
       "Posh Limousines of Atlanta's Privacy Policy - how we handle and protect your data.",
     ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
     navPage: "",
     isHomePage: false,
     pageSchema: [
@@ -583,11 +797,11 @@ const pageData = {
         "name": "Privacy Policy",
         "description":
           "Posh Limousines of Atlanta's Privacy Policy explaining how personal information is collected, used, shared, and protected.",
-        "url": "https://www.poshlimosatlanta.com/privacy-policy",
+        "url": "https://www.atlantaposhlimos.com/privacy-policy",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Posh Limousines of Atlanta",
-          "url": "https://www.poshlimosatlanta.com",
+          "url": "https://www.atlantaposhlimos.com",
         },
       },
       {
@@ -598,13 +812,59 @@ const pageData = {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.poshlimosatlanta.com",
+            "item": "https://www.atlantaposhlimos.com",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Privacy Policy",
-            "item": "https://www.poshlimosatlanta.com/privacy-policy",
+            "item": "https://www.atlantaposhlimos.com/privacy-policy",
+          },
+        ],
+      },
+    ],
+  },
+  
+  rates: {
+    title: "Rates & Fare Estimator | Posh Limousines of Atlanta",
+    description:
+      "Calculate your luxury trip cost instantly with our online fare estimator. Transparent black SUV chauffeur pricing in Atlanta for airport transfers, corporate travel, and special events.",
+    canonical: "https://www.atlantaposhlimos.com/rates",
+    ogTitle: "Rates & Fare Estimator | Posh Limousines of Atlanta",
+    ogDescription:
+      "Instant fare estimation for luxury black SUV transportation in Atlanta. No surge pricing, no surprises.",
+    ogImage: "assets/hero_atlanta.png",
+    heroImage: "assets/hero_atlanta.png",
+    navPage: "rates",
+    isHomePage: false,
+    pageSchema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Rates & Fare Estimator",
+        "description": "Calculate your luxury trip cost instantly with our online fare estimator.",
+        "url": "https://www.atlantaposhlimos.com/rates",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Posh Limousines of Atlanta",
+          "url": "https://www.atlantaposhlimos.com",
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.atlantaposhlimos.com",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Rates",
+            "item": "https://www.atlantaposhlimos.com/rates",
           },
         ],
       },

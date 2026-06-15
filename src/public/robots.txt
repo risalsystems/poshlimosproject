@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.poshlimosatlanta.com/sitemap.xml
+Sitemap: https://www.atlantaposhlimos.com/sitemap.xml

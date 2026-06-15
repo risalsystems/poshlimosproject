@@ -14,8 +14,8 @@ include('./partials/nav.html') %>
     <h1 class="hero-title">Posh Limousines <span>of Atlanta</span></h1>
     <p class="hero-desc">
       Atlanta's premier black SUV chauffeur service. Enjoy unmatched luxury,
-      premium comfort, and absolute reliability in our Cadillac Escalades and
-      Lincoln Navigators.
+      premium comfort, and absolute reliability in our Lincoln Navigators,
+      Chevy Suburbans, and Tahoes.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn" onclick="openCalendly('home')"
@@ -106,25 +106,27 @@ include('./partials/nav.html') %>
     </div>
 
     <div class="services-grid">
-      <!-- Service 1: Airport Pickups -->
+      <!-- Service 1: Airport Transfers -->
       <article class="service-card reveal">
         <div class="service-img-wrapper">
-          <div class="service-price-badge">From $115</div>
+          <div class="service-price-badge">Flat-Rate Fares</div>
           <img
             src="assets/service_airport.png"
             alt="Black Lincoln Navigator SUV parked at private aviation hangar"
             width="1024"
             height="1024"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="service-card-body">
-          <h3>Airport Pickups</h3>
+          <h3>Airport Transfers</h3>
           <p>
             Streamlined, luxurious transfers to and from Hartsfield-Jackson
             (ATL) and private regional aviation terminals. Real-time flight
             tracking included.
           </p>
-          <a href="airport-pickups.html" class="service-link">
+          <a href="airport-transfers.html" class="service-link">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -135,15 +137,48 @@ include('./partials/nav.html') %>
         </div>
       </article>
 
-      <!-- Service 2: Formal Celebrations -->
+      <!-- Service 2: Signature Accounts -->
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-img-wrapper">
+          <div class="service-price-badge">Locked-in Rates</div>
+          <img
+            src="assets/service_corporate.png"
+            alt="Professional chauffeur standing beside a black Lincoln Navigator in Atlanta"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="service-card-body">
+          <h3>Signature Accounts</h3>
+          <p>
+            Dedicated recurring service for weekly, bi-monthly, and monthly
+            clients. Priority scheduling, consistent chauffeur, and simplified
+            billing — no booking friction, every time.
+          </p>
+          <a href="signature-accounts.html" class="service-link">
+            Explore Details
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 3: Formal Celebrations -->
       <article class="service-card reveal reveal-delay-1">
         <div class="service-img-wrapper">
           <div class="service-price-badge">From $150/hr</div>
           <img
             src="assets/service_formal.png"
-            alt="Black Cadillac Escalade luxury SUV decorated for a wedding celebration"
+            alt="Black Lincoln Navigator luxury SUV decorated for a wedding celebration"
             width="1024"
             height="1024"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="service-card-body">
@@ -173,6 +208,8 @@ include('./partials/nav.html') %>
             alt="Luxury SUV cabin interior looking through to professional chauffeur steering"
             width="1024"
             height="1024"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="service-card-body">
@@ -202,6 +239,8 @@ include('./partials/nav.html') %>
             alt="Black Lincoln Navigator SUV parked outside Atlanta Mercedes-Benz Stadium at night"
             width="1024"
             height="1024"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="service-card-body">
@@ -228,9 +267,11 @@ include('./partials/nav.html') %>
           <div class="service-price-badge">From $135/hr</div>
           <img
             src="assets/service_corporate.png"
-            alt="Black Cadillac Escalade executive transit driving past Buckhead glass high rises"
+            alt="Black Lincoln Navigator executive transit driving past Buckhead glass high rises"
             width="1024"
             height="1024"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div class="service-card-body">
@@ -295,7 +336,7 @@ include('./partials/nav.html') %>
           </svg>
         </div>
         <p class="review-text">
-          "Absolute first-class experience! The Cadillac Escalade was
+          "Absolute first-class experience! The Lincoln Navigator was
           immaculate, stocked with cold waters, and our chauffeur arrived 10
           minutes early. Posh Limousines is now our go-to for corporate travel
           in Atlanta."
@@ -415,7 +456,7 @@ include('./partials/nav.html') %>
       </p>
       <p>
         Our operation is strictly professional, utilizing a late-model fleet of
-        immaculate black Cadillac Escalades and Lincoln Navigators. Every driver
+        immaculate black Lincoln Navigators, Chevy Suburbans, and Tahoes. Every driver
         is vetting-cleared, background-checked, and highly trained in client
         etiquette and route efficiency.
       </p>
@@ -424,7 +465,7 @@ include('./partials/nav.html') %>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
           </svg>
-          <span>Late-model premium Cadillac and Lincoln SUVs</span>
+          <span>Late-model premium Lincoln Navigators, Chevy Suburbans, and Tahoes</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -519,7 +560,7 @@ include('./partials/nav.html') %>
             <label for="form-service">Required Service</label>
             <select name="service_type" id="form-service" required>
               <option value="" disabled selected>Select a Service</option>
-              <option value="Airport Pickups">Airport Pickups</option>
+              <option value="Airport Transfers">Airport Transfers</option>
               <option value="Formal Celebrations">Formal Celebrations</option>
               <option value="Safe Driver Pickup">Safe Driver Pickup</option>
               <option value="Casual Events">Casual Events</option>

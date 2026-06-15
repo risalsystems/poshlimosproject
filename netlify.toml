@@ -2,11 +2,22 @@
 [build]
   command   = "npm run build"
   publish   = "dist"
+  functions = "netlify/functions"
 
 # ── Clean URLs (strip .html extension) ───────────────────────────────────────
 [[redirects]]
-  from   = "/airport-pickups"
-  to     = "/airport-pickups.html"
+  from   = "/airport-transfers"
+  to     = "/airport-transfers.html"
+  status = 200
+
+[[redirects]]
+  from   = "/signature-accounts"
+  to     = "/signature-accounts.html"
+  status = 200
+
+[[redirects]]
+  from   = "/posh-preferred"
+  to     = "/posh-preferred.html"
   status = 200
 
 [[redirects]]
@@ -46,6 +57,9 @@
     X-Frame-Options        = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy        = "strict-origin-when-cross-origin"
+    # Allows inline <script> blocks (EJS templates) and Google Maps CDN.
+    # Switch unsafe-inline → nonce-based once scripts are in external .js files.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com https://calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.googleapis.com https://*.gstatic.com https://calendly.com https://*.calendly.com; connect-src 'self' https://maps.googleapis.com https://calendly.com https://api.calendly.com; frame-src https://calendly.com; object-src 'none'; base-uri 'self';"
 
 # Long cache for hashed Vite assets (JS/CSS bundles)
 [[headers]]

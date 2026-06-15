@@ -1,89 +1,86 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import ejs from "ejs";
-import fs from "fs";
-import pageData from "./page-data.js";
+import { renderAll, PAGES, STAGE } from "./scripts/render-ejs.js";
+import { handler as calculateFareHandler } from "./netlify/functions/calculate-fare.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const PAGES = [
-  "index",
-  "airport-pickups",
-  "casual-events",
-  "corporate-events",
-  "formal-celebrations",
-  "safe-driver-pickup",
-  "privacy-policy",
-  "tos",
-];
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  const googleMapsKey = env.GOOGLE_MAPS_API_KEY || "";
 
-const SRC = resolve(__dirname, "src");
-const STAGE = resolve(__dirname, ".vite-staging");
+  return {
+    root: STAGE,
 
-// ── Pre-render all EJS pages to clean HTML in .vite-staging/ ─────────────────
-// Copies the entire src/ tree, then renders each page template with its data.
-// Vite operates on the staged files — no EJS syntax ever reaches parse5.
-async function renderAll() {
-  fs.cpSync(SRC, STAGE, { recursive: true, force: true });
-  for (const page of PAGES) {
-    const src = resolve(SRC, `${page}.html`);
-    const out = resolve(STAGE, `${page}.html`);
-    const data = pageData[page] ?? {};
-    const html = await ejs.renderFile(src, data, { filename: src });
-    fs.writeFileSync(out, html, "utf-8");
-  }
-}
-
-export default defineConfig({
-  // Vite root points at the staged (pre-rendered) files, not src/
-  root: STAGE,
-
-  server: {
-    watch: {
-      // Prevent an infinite HMR reload loop: renderAll() writes HTML to
-      // .vite-staging/, Vite detects the change and tells the browser to
-      // reload, the reload triggers renderAll() again, and so on.
-      // Ignoring staged HTML files breaks the cycle while leaving CSS/JS
-      // hot-module-replacement intact.
-      ignored: [`${STAGE}/**/*.html`],
-    },
-  },
-
-  build: {
-    outDir: resolve(__dirname, "dist"),
-    emptyOutDir: true,
-    rollupOptions: {
-      input: Object.fromEntries(
-        PAGES.map((p) => [p, resolve(STAGE, `${p}.html`)]),
-      ),
-    },
-  },
-
-  plugins: [
-    {
-      name: "ejs-pre-render",
-
-      // Build mode: render before Vite reads any HTML
-      async buildStart() {
-        await renderAll();
-      },
-
-      // Dev mode: render on every incoming HTML page request
-      configureServer(server) {
-        server.middlewares.use(async (req, res, next) => {
-          const urlPath = (req.url ?? "/").split("?")[0];
-          const page =
-            urlPath
-              .replace(/^\//, "")
-              .replace(/\/$/, "")
-              .replace(/\.html$/, "") || "index";
-          if (PAGES.includes(page)) {
-            await renderAll();
-          }
-          next();
-        });
+    server: {
+      watch: {
+        ignored: [`${STAGE}/**/*.html`],
       },
     },
-  ],
+
+    build: {
+      outDir: resolve(__dirname, "dist"),
+      emptyOutDir: true,
+      rollupOptions: {
+        input: Object.fromEntries(
+          PAGES.map((p) => [p, resolve(STAGE, `${p}.html`)]),
+        ),
+      },
+    },
+
+    plugins: [
+      {
+        name: "netlify-functions-dev",
+        configureServer(server) {
+          server.middlewares.use("/.netlify/functions/calculate-fare", async (req, res) => {
+            if (req.method === "OPTIONS") {
+              res.writeHead(204, {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type",
+              });
+              res.end();
+              return;
+            }
+            const chunks = [];
+            for await (const chunk of req) chunks.push(chunk);
+            const event = {
+              httpMethod: req.method,
+              headers: req.headers,
+              body: Buffer.concat(chunks).toString(),
+            };
+            const result = await calculateFareHandler(event);
+            res.writeHead(result.statusCode, {
+              ...result.headers,
+              "Access-Control-Allow-Origin": "*",
+            });
+            res.end(result.body);
+          });
+        },
+      },
+      {
+        name: "ejs-pre-render",
+
+        async buildStart() {
+          await renderAll({ googleMapsKey });
+        },
+
+        configureServer(server) {
+          server.middlewares.use(async (req, res, next) => {
+            const urlPath = (req.url ?? "/").split("?")[0];
+            const page =
+              urlPath
+                .replace(/^\//, "")
+                .replace(/\/$/, "")
+                .replace(/\.html$/, "") || "index";
+            if (PAGES.includes(page)) {
+              await renderAll({ googleMapsKey });
+            }
+            next();
+          });
+        },
+      },
+    ],
+  };
 });

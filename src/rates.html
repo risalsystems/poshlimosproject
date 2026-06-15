@@ -1,0 +1,306 @@
+<%- include('./partials/layout_start.html') %>
+<%- include('./partials/nav.html') %>
+
+    <!-- ==========================================================================
+       PAGE HEADER BANNER
+       ========================================================================== -->
+    <section class="details-page-header" style="background-image: url('assets/hero_atlanta.png');">
+        <div class="container">
+            <div class="details-header-content">
+                <span>Transparent Pricing</span>
+                <h1>Rates &amp; Estimator</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       TRIP CALCULATOR SECTION
+       ========================================================================== -->
+    <section class="calc-section">
+        <div class="container">
+            <div class="faq-header">
+                <span>Fare Estimator</span>
+                <h2>Calculate Your Trip Cost</h2>
+            </div>
+
+            <div class="calc-layout">
+
+                <!-- Form Column -->
+                <div class="calc-form-col">
+
+                    <!-- Route -->
+                    <div class="calc-card">
+                        <p class="calc-card-label">Route</p>
+                        <div class="calc-route-row">
+                            <span class="calc-dot calc-dot--pickup" aria-hidden="true"></span>
+                            <input type="text" id="calc-pickup" class="calc-input" placeholder="Pickup address" autocomplete="off" aria-label="Pickup address">
+                        </div>
+                        <div class="calc-route-row calc-route-row--last">
+                            <span class="calc-dot calc-dot--dropoff" aria-hidden="true"></span>
+                            <input type="text" id="calc-dropoff" class="calc-input" placeholder="Destination address" autocomplete="off" aria-label="Destination address">
+                        </div>
+                        <p id="calc-distance-status" class="calc-distance-status" aria-live="polite">Enter pickup and destination to calculate distance</p>
+                    </div>
+
+                    <!-- Time & Distance -->
+                    <div class="calc-card calc-card--grid">
+                        <div>
+                            <label class="calc-field-label" for="calc-time">Pickup time</label>
+                            <input type="time" id="calc-time" class="calc-input" value="09:00" aria-label="Pickup time">
+                        </div>
+                        <div>
+                            <label class="calc-field-label" for="calc-miles">Distance (miles)</label>
+                            <input type="number" id="calc-miles" class="calc-input" min="0" max="300" step="0.1" placeholder="Auto-filled" aria-label="Distance in miles">
+                        </div>
+                    </div>
+
+                    <!-- Peach Pass -->
+                    <div class="calc-card">
+                        <label class="calc-check-row">
+                            <input type="checkbox" id="calc-peach" aria-label="Peach Pass requested">
+                            <span>Peach Pass requested</span>
+                        </label>
+                        <p id="calc-peach-note" class="calc-peach-note" aria-live="polite"></p>
+                    </div>
+
+                    <!-- Additional Stops -->
+                    <div class="calc-card">
+                        <p class="calc-card-label calc-card-label--tight">Additional stops</p>
+                        <p class="calc-field-label calc-field-label--sub">Stops within 2 miles of pickup are free</p>
+                        <div class="calc-card--grid">
+                            <div>
+                                <label class="calc-field-label" for="calc-stops">Stops &gt; 2 mi from pickup</label>
+                                <input type="number" id="calc-stops" class="calc-input" value="0" min="0" max="20" step="1" aria-label="Number of additional stops">
+                            </div>
+                            <div>
+                                <label class="calc-field-label" for="calc-stop-miles">Total extra miles</label>
+                                <input type="number" id="calc-stop-miles" class="calc-input" value="0" min="0" max="100" step="0.5" aria-label="Total extra miles for stops">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gratuity -->
+                    <div class="calc-card">
+                        <label class="calc-check-row">
+                            <input type="checkbox" id="calc-grat-toggle" aria-label="Include gratuity in estimate">
+                            <span>Include gratuity in estimate</span>
+                        </label>
+                        <div id="calc-grat-controls">
+                            <div class="calc-grat-btns" role="group" aria-label="Gratuity percentage options">
+                                <button type="button" class="calc-grat-btn"            id="calc-btn15"     onclick="calcSetGrat(15)">15%</button>
+                                <button type="button" class="calc-grat-btn"            id="calc-btn20" onclick="calcSetGrat(20)">20%</button>
+                                <button type="button" class="calc-grat-btn"            id="calc-btn25"     onclick="calcSetGrat(25)">25%</button>
+                                <button type="button" class="calc-grat-btn calc-grat-btn--active" id="calc-btnCustom" onclick="calcSetCustom()">Custom $</button>
+                            </div>
+                            <div id="calc-custom-grat" class="calc-custom-grat calc-custom-grat--visible" aria-hidden="false">
+                                <span class="calc-currency">$</span>
+                                <input type="number" id="calc-custom-grat-val" class="calc-input calc-input--sm" placeholder="0.00" min="0" step="0.01" aria-label="Custom gratuity amount">
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /calc-form-col -->
+
+                <!-- Result Column -->
+                <div class="calc-result-col">
+                    <div class="calc-result-card">
+                        <p class="calc-result-label">Estimated Range</p>
+                        <div id="calc-range" class="calc-range" aria-live="polite">
+                            <span class="calc-range-zero">$0</span>
+                        </div>
+                        <p class="calc-result-note">Final price confirmed at booking · Gratuity at client's discretion</p>
+                        <a href="index.html#contact" class="btn calc-book-btn" onclick="openCalendly('rates')">Book This Trip</a>
+                    </div>
+                </div>
+
+            </div><!-- /calc-layout -->
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       BOOKING CTA SECTION
+       ========================================================================== -->
+    <section class="cta-section" style="padding: 60px 0; background: var(--bg-alt); text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container" style="max-width: 600px;">
+            <h2 style="margin-bottom: 20px; font-size: 2rem; font-weight: 600; color: var(--text-main);">Ready to Reserve Your Chauffeur?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+                Book your luxury black SUV ride in advance. Schedule directly using our Calendly system or contact our dispatch office for custom itineraries.
+            </p>
+            <a href="index.html#contact" class="btn" style="padding: 15px 40px; font-size: 1.1rem; display: inline-block;" onclick="openCalendly('rates')">Book Your Ride Now</a>
+        </div>
+    </section>
+
+    <script>
+    // ── Trip Calculator (UI state only — pricing lives in /.netlify/functions/calculate-fare) ──
+    let calcGratPct = 20, calcIsCustom = true, calcDebounce = null;
+
+    function calcSetGrat(pct) {
+        calcGratPct = pct; calcIsCustom = false;
+        var wrap = document.getElementById('calc-custom-grat');
+        wrap.classList.remove('calc-custom-grat--visible');
+        wrap.setAttribute('aria-hidden', 'true');
+        document.getElementById('calc-custom-grat-val').value = '';
+        ['calc-btn15','calc-btn20','calc-btn25','calc-btnCustom'].forEach(function(id) {
+            document.getElementById(id).classList.remove('calc-grat-btn--active');
+        });
+        document.getElementById('calc-btn' + pct).classList.add('calc-grat-btn--active');
+        calcUpdate();
+    }
+
+    function calcSetCustom() {
+        calcIsCustom = true;
+        ['calc-btn15','calc-btn20','calc-btn25','calc-btnCustom'].forEach(function(id) {
+            document.getElementById(id).classList.remove('calc-grat-btn--active');
+        });
+        document.getElementById('calc-btnCustom').classList.add('calc-grat-btn--active');
+        var wrap = document.getElementById('calc-custom-grat');
+        wrap.classList.add('calc-custom-grat--visible');
+        wrap.setAttribute('aria-hidden', 'false');
+        document.getElementById('calc-custom-grat-val').focus();
+        calcUpdate();
+    }
+
+    // Debounced trigger — waits 450 ms after last input before hitting the function
+    function calcUpdate() {
+        clearTimeout(calcDebounce);
+        calcDebounce = setTimeout(calcFetch, 450);
+    }
+
+    // Build span nodes instead of injecting HTML strings
+    function setRangeNode(cls, text) {
+        var span = document.createElement('span');
+        span.className   = cls;
+        span.textContent = text;
+        var el = document.getElementById('calc-range');
+        el.textContent = '';
+        el.appendChild(span);
+    }
+
+    function setRangePair(low, high) {
+        var lo  = document.createElement('span');
+        var sep = document.createElement('span');
+        var hi  = document.createElement('span');
+        lo.className   = 'calc-range-val';
+        sep.className  = 'calc-range-sep';
+        hi.className   = 'calc-range-val';
+        lo.textContent  = '$' + low.toLocaleString();
+        sep.textContent = '–';
+        hi.textContent  = '$' + high.toLocaleString();
+        var el = document.getElementById('calc-range');
+        el.textContent = '';
+        el.appendChild(lo);
+        el.appendChild(sep);
+        el.appendChild(hi);
+    }
+
+    async function calcFetch() {
+        var miles    = parseFloat(document.getElementById('calc-miles').value) || 0;
+        var useGrat  = document.getElementById('calc-grat-toggle').checked;
+
+        // Gratuity controls enabled/disabled (pure UI)
+        document.getElementById('calc-grat-controls').classList.toggle('calc-grat-controls--off', !useGrat);
+
+        if (miles === 0) {
+            setRangeNode('calc-range-zero', '$0');
+            return;
+        }
+
+        setRangeNode('calc-range-zero', '…');
+
+        try {
+            var res = await fetch('/.netlify/functions/calculate-fare', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    miles:      miles,
+                    time:       document.getElementById('calc-time').value || '09:00',
+                    usePeach:   document.getElementById('calc-peach').checked,
+                    stops:      parseInt(document.getElementById('calc-stops').value)       || 0,
+                    stopMiles:  parseFloat(document.getElementById('calc-stop-miles').value) || 0,
+                    useGrat:    useGrat,
+                    gratPct:    calcGratPct,
+                    isCustom:   calcIsCustom,
+                    customGrat: parseFloat(document.getElementById('calc-custom-grat-val').value) || 0,
+                }),
+            });
+
+            if (!res.ok) throw new Error('calc error');
+            var data = await res.json();
+
+            // Peach Pass note from server
+            var note = document.getElementById('calc-peach-note');
+            if (document.getElementById('calc-peach').checked) {
+                note.style.display = 'block';
+                note.textContent   = data.peachOffPeak
+                    ? 'Off-peak — Peach Pass not typically needed. +$10 if still requested.'
+                    : data.peachLabel + ' rate applies';
+            } else {
+                note.style.display = 'none';
+            }
+
+            setRangePair(data.low, data.high);
+
+        } catch (_) {
+            setRangeNode('calc-range-zero', '—');
+        }
+    }
+
+    // Event wiring
+    document.getElementById('calc-grat-toggle').addEventListener('change', calcUpdate);
+    document.getElementById('calc-custom-grat-val').addEventListener('input', calcUpdate);
+    ['calc-time','calc-miles','calc-peach','calc-stops','calc-stop-miles'].forEach(function(id) {
+        document.getElementById(id).addEventListener('input',  calcUpdate);
+        document.getElementById(id).addEventListener('change', calcUpdate);
+    });
+
+    calcUpdate();
+
+    // ── Google Maps autocomplete + distance ──────────────────────────────────
+    window.initMap = function() {
+        var opts = { componentRestrictions: { country: 'us' } };
+        var pAC  = new google.maps.places.Autocomplete(document.getElementById('calc-pickup'),  opts);
+        var dAC  = new google.maps.places.Autocomplete(document.getElementById('calc-dropoff'), opts);
+        [pAC, dAC].forEach(function(ac) { ac.addListener('place_changed', calcGetDistance); });
+    };
+
+    function calcGetDistance() {
+        var pickup  = document.getElementById('calc-pickup').value.trim();
+        var dropoff = document.getElementById('calc-dropoff').value.trim();
+        var status  = document.getElementById('calc-distance-status');
+        if (!pickup || !dropoff) return;
+
+        status.className = 'calc-distance-status';
+        status.textContent = 'Calculating distance…';
+
+        new google.maps.DistanceMatrixService().getDistanceMatrix({
+            origins:      [pickup],
+            destinations: [dropoff],
+            travelMode:   google.maps.TravelMode.DRIVING,
+            unitSystem:   google.maps.UnitSystem.IMPERIAL,
+        }, function(res, stat) {
+            if (stat !== 'OK') {
+                status.className = 'calc-distance-status calc-distance-status--err';
+                status.textContent = 'Could not calculate distance — check addresses.';
+                return;
+            }
+            var el = res.rows[0].elements[0];
+            if (el.status !== 'OK') {
+                status.className = 'calc-distance-status calc-distance-status--err';
+                status.textContent = 'Route not found — try more specific addresses.';
+                return;
+            }
+            var miles = (el.distance.value / 1609.34).toFixed(1);
+            document.getElementById('calc-miles').value = miles;
+            status.className = 'calc-distance-status calc-distance-status--ok';
+            status.textContent = miles + ' miles · approx. ' + el.duration.text + ' drive';
+            calcUpdate();
+        });
+    }
+    </script>
+
+    <% if (locals.googleMapsKey) { %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= locals.googleMapsKey %>&libraries=places&callback=initMap" async defer></script>
+    <% } %>
+
+<%- include('./partials/footer.html') %>
+<%- include('./partials/layout_end.html') %>

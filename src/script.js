@@ -232,11 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
 // Open Calendly widget
 function openCalendly(type) {
   const urls = {
-    home: "https://calendly.com/posh-limos",
-    airport: "https://calendly.com/posh-limos/airport",
-    formal: "https://calendly.com/posh-limos/formal",
+    home:          "https://calendly.com/posh-limos",
+    airport:       "https://calendly.com/posh-limos/airport",
+    formal:        "https://calendly.com/posh-limos/formal",
     "safe-driver": "https://calendly.com/posh-limos/safe-driver",
-    corporate: "https://calendly.com/posh-limos/corporate",
+    corporate:     "https://calendly.com/posh-limos/corporate",
+    casual:        "https://calendly.com/posh-limos/casual",
   }
   if (urls[type]) {
     Calendly.initPopupWidget({

@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.poshlimosatlanta.com/</loc>
+    <loc>https://www.atlantaposhlimos.com/</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.poshlimosatlanta.com/airport-pickups</loc>
+    <loc>https://www.atlantaposhlimos.com/airport-transfers</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.poshlimosatlanta.com/corporate-events</loc>
+    <loc>https://www.atlantaposhlimos.com/corporate-events</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.poshlimosatlanta.com/formal-celebrations</loc>
+    <loc>https://www.atlantaposhlimos.com/formal-celebrations</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.poshlimosatlanta.com/casual-events</loc>
+    <loc>https://www.atlantaposhlimos.com/casual-events</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.poshlimosatlanta.com/safe-driver-pickup</loc>
+    <loc>https://www.atlantaposhlimos.com/safe-driver-pickup</loc>
     <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.atlantaposhlimos.com/signature-accounts</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.atlantaposhlimos.com/posh-preferred</loc>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
