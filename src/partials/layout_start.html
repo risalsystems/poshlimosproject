@@ -59,7 +59,16 @@
         "postalCode": "30303",
         "addressCountry": "US"
       },
-      "areaServed": "Atlanta Metropolitan Area"
+      "areaServed": "Atlanta Metropolitan Area",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday",
+          "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
     }
     </script>
     <% if (locals.pageSchema) { %>
