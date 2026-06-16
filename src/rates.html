@@ -204,10 +204,10 @@
         var MAX_STOPS   = 5;
         var STOP_LABELS = ['A', 'B', 'C', 'D', 'E'];
 
-        // ATL-area airport detection (Hartsfield-Jackson, PDK, FTY)
+        // ATL-area airport detection (Hartsfield-Jackson, PDK, FTY) or any airport/air term
         function isAtlAirport(text) {
             if (!text) return false;
-            return /(hartsfield|\b30337\b|peachtree[\s-]+dekalb|\bPDK\b|fulton\s+county\s+airport|\bFTY\b)/i.test(text);
+            return /(hartsfield|\b30337\b|peachtree[\s-]+dekalb|\bPDK\b|fulton\s+county\s+airport|\bFTY\b|airport|\bair\b)/i.test(text);
         }
 
         // ── State ──
