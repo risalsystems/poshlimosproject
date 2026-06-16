@@ -4,7 +4,7 @@
     <!-- ==========================================================================
        PAGE HEADER BANNER
        ========================================================================== -->
-    <section class="details-page-header" style="background-image: url('assets/hero_atlanta.png');">
+    <section class="details-page-header details-page-header--rates">
         <div class="container">
             <div class="details-header-content">
                 <span>Transparent Pricing</span>
@@ -25,91 +25,160 @@
 
             <div class="calc-layout">
 
-                <!-- Form Column -->
+                <!-- ═══════════ FORM COLUMN ═══════════ -->
                 <div class="calc-form-col">
 
-                    <!-- Route -->
+                    <!-- Section 1: Route -->
                     <div class="calc-card">
-                        <p class="calc-card-label">Route</p>
-                        <div class="calc-route-row">
-                            <span class="calc-dot calc-dot--pickup" aria-hidden="true"></span>
-                            <input type="text" id="calc-pickup" class="calc-input" placeholder="Pickup address" autocomplete="off" aria-label="Pickup address">
+                        <div class="calc-section-head">
+                            <span class="calc-step-num">1</span> Your Route
                         </div>
+
+                        <!-- Pickup -->
+                        <div class="calc-route-row calc-route-row--pickup">
+                            <span class="calc-dot calc-dot--pickup" aria-hidden="true"></span>
+                            <input type="text" id="calc-pickup" class="calc-input"
+                                   placeholder="Pickup address" autocomplete="off" aria-label="Pickup address" />
+                        </div>
+
+                        <!-- Stop count stepper -->
+                        <div class="calc-stepper-row">
+                            <span class="calc-field-label calc-stepper-label">Additional Stops</span>
+                            <div class="calc-stepper">
+                                <button type="button" id="calc-dec-stops" class="calc-stepper-btn" aria-label="Remove stop">−</button>
+                                <div class="calc-stepper-display" id="calc-stop-count-display" aria-live="polite">0</div>
+                                <button type="button" id="calc-inc-stops" class="calc-stepper-btn" aria-label="Add stop">+</button>
+                            </div>
+                            <span class="calc-field-label calc-stepper-note">max 5 · stops ≤ 2 mi are free</span>
+                        </div>
+
+                        <!-- Dynamic stop rows injected here -->
+                        <div id="calc-stops-container"></div>
+
+                        <!-- Destination -->
                         <div class="calc-route-row calc-route-row--last">
                             <span class="calc-dot calc-dot--dropoff" aria-hidden="true"></span>
-                            <input type="text" id="calc-dropoff" class="calc-input" placeholder="Destination address" autocomplete="off" aria-label="Destination address">
+                            <input type="text" id="calc-dropoff" class="calc-input"
+                                   placeholder="Final destination" autocomplete="off" aria-label="Final destination" />
                         </div>
-                        <p id="calc-distance-status" class="calc-distance-status" aria-live="polite">Enter pickup and destination to calculate distance</p>
+                        <div id="calc-dropoff-leginfo" class="calc-stop-leginfo" style="margin-top: 4px; padding-left: 30px;"></div>
+
+                        <p id="calc-distance-status" class="calc-distance-status" aria-live="polite">
+                            Enter pickup and destination, then tap Calculate
+                        </p>
                     </div>
 
-                    <!-- Time & Distance -->
-                    <div class="calc-card calc-card--grid">
-                        <div>
-                            <label class="calc-field-label" for="calc-time">Pickup time</label>
-                            <input type="time" id="calc-time" class="calc-input" value="09:00" aria-label="Pickup time">
-                        </div>
-                        <div>
-                            <label class="calc-field-label" for="calc-miles">Distance (miles)</label>
-                            <input type="number" id="calc-miles" class="calc-input" min="0" max="300" step="0.1" placeholder="Auto-filled" aria-label="Distance in miles">
-                        </div>
-                    </div>
-
-                    <!-- Peach Pass -->
+                    <!-- Section 2: Date & Time -->
                     <div class="calc-card">
-                        <label class="calc-check-row">
-                            <input type="checkbox" id="calc-peach" aria-label="Peach Pass requested">
-                            <span>Peach Pass requested</span>
-                        </label>
-                        <p id="calc-peach-note" class="calc-peach-note" aria-live="polite"></p>
-                    </div>
-
-                    <!-- Additional Stops -->
-                    <div class="calc-card">
-                        <p class="calc-card-label calc-card-label--tight">Additional stops</p>
-                        <p class="calc-field-label calc-field-label--sub">Stops within 2 miles of pickup are free</p>
+                        <div class="calc-section-head">
+                            <span class="calc-step-num">2</span> Pickup Date &amp; Time
+                        </div>
                         <div class="calc-card--grid">
                             <div>
-                                <label class="calc-field-label" for="calc-stops">Stops &gt; 2 mi from pickup</label>
-                                <input type="number" id="calc-stops" class="calc-input" value="0" min="0" max="20" step="1" aria-label="Number of additional stops">
+                                <label class="calc-field-label" for="calc-date">Date</label>
+                                <input type="date" id="calc-date" class="calc-input" aria-label="Pickup date" />
                             </div>
                             <div>
-                                <label class="calc-field-label" for="calc-stop-miles">Total extra miles</label>
-                                <input type="number" id="calc-stop-miles" class="calc-input" value="0" min="0" max="100" step="0.5" aria-label="Total extra miles for stops">
+                                <label class="calc-field-label" for="calc-time">Time</label>
+                                <input type="time" id="calc-time" class="calc-input" value="09:00" aria-label="Pickup time" />
                             </div>
                         </div>
                     </div>
 
-                    <!-- Gratuity -->
+                    <!-- Section 3: Trip Options -->
                     <div class="calc-card">
-                        <label class="calc-check-row">
-                            <input type="checkbox" id="calc-grat-toggle" aria-label="Include gratuity in estimate">
-                            <span>Include gratuity in estimate</span>
-                        </label>
-                        <div id="calc-grat-controls">
-                            <div class="calc-grat-btns" role="group" aria-label="Gratuity percentage options">
-                                <button type="button" class="calc-grat-btn"            id="calc-btn15"     onclick="calcSetGrat(15)">15%</button>
-                                <button type="button" class="calc-grat-btn"            id="calc-btn20" onclick="calcSetGrat(20)">20%</button>
-                                <button type="button" class="calc-grat-btn"            id="calc-btn25"     onclick="calcSetGrat(25)">25%</button>
-                                <button type="button" class="calc-grat-btn calc-grat-btn--active" id="calc-btnCustom" onclick="calcSetCustom()">Custom $</button>
+                        <div class="calc-section-head">
+                            <span class="calc-step-num">3</span> Trip Options
+                        </div>
+
+                        <label class="calc-check-row calc-check-row--block" for="calc-hotlane">
+                            <input type="checkbox" id="calc-hotlane" aria-label="HOT Lane pass" />
+                            <div>
+                                <div>HOT Lane Pass</div>
+                                <div class="calc-check-sub">Use express managed lanes — surcharge determined by when your trip overlaps peak windows</div>
                             </div>
-                            <div id="calc-custom-grat" class="calc-custom-grat calc-custom-grat--visible" aria-hidden="false">
-                                <span class="calc-currency">$</span>
-                                <input type="number" id="calc-custom-grat-val" class="calc-input calc-input--sm" placeholder="0.00" min="0" step="0.01" aria-label="Custom gratuity amount">
+                        </label>
+
+                        <!-- Only shown when pickup or destination is an ATL-area airport -->
+                        <label class="calc-check-row calc-check-row--block calc-check-row--nomb calc-hidden"
+                               for="calc-meetgreet" id="calc-meetgreet-row">
+                            <input type="checkbox" id="calc-meetgreet" aria-label="Meet and Greet airport service" />
+                            <div>
+                                <div>Meet &amp; Greet — Airport Service</div>
+                                <div class="calc-check-sub">Driver meets you inside the terminal with a name sign (+$25)</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Section 4: Passengers -->
+                    <div class="calc-card">
+                        <div class="calc-section-head calc-section-head--pass">
+                            <div class="calc-section-head-inner">
+                                <span class="calc-step-num">4</span> Passengers
+                            </div>
+                            <button type="button" class="calc-add-pass-btn" id="calc-add-pass">+ Add Passenger</button>
+                        </div>
+                        <div id="calc-passengers">
+                            <div class="calc-pass-row">
+                                <div class="calc-pass-fields">
+                                    <div>
+                                        <label class="calc-field-label">Full Name</label>
+                                        <input type="text" class="calc-input calc-pass-name" placeholder="Full name" />
+                                    </div>
+                                    <div>
+                                        <label class="calc-field-label">Phone</label>
+                                        <input type="tel" class="calc-input calc-pass-phone" placeholder="+1 (555) 000-0000" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Section 5: Referred By -->
+                    <div class="calc-card">
+                        <div class="calc-section-head">
+                            <span class="calc-step-num">5</span> Referred By
+                        </div>
+                        <div class="calc-card--grid">
+                            <div>
+                                <label class="calc-field-label" for="calc-ref-first">First Name</label>
+                                <input type="text" id="calc-ref-first" class="calc-input" placeholder="First name" />
+                            </div>
+                            <div>
+                                <label class="calc-field-label" for="calc-ref-last">Last Name</label>
+                                <input type="text" id="calc-ref-last" class="calc-input" placeholder="Last name" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn calc-btn-estimate" id="calc-btn-estimate">
+                        Calculate Fare Estimate
+                    </button>
+                    <div id="calc-error-msg" class="calc-error-msg calc-hidden" role="alert"></div>
 
                 </div><!-- /calc-form-col -->
 
-                <!-- Result Column -->
+                <!-- ═══════════ QUOTE PANEL ═══════════ -->
                 <div class="calc-result-col">
                     <div class="calc-result-card">
-                        <p class="calc-result-label">Estimated Range</p>
-                        <div id="calc-range" class="calc-range" aria-live="polite">
-                            <span class="calc-range-zero">$0</span>
+                        <p class="calc-result-label">Fare Estimate</p>
+                        <p class="calc-quote-sub">All figures are estimates</p>
+
+                        <div id="calc-quote-empty" class="calc-quote-empty">
+                            <div class="calc-quote-empty-icon">🗺</div>
+                            <p>Enter your route and tap <em>Calculate Fare Estimate</em> to see your itemized quote.</p>
                         </div>
-                        <p class="calc-result-note">Final price confirmed at booking · Gratuity at client's discretion</p>
-                        <a href="index.html#contact" class="btn calc-book-btn" onclick="openCalendly('rates')">Book This Trip</a>
+
+                        <div id="calc-quote-result" class="calc-hidden">
+                            <div id="calc-range" class="calc-range" aria-live="polite"></div>
+                            <p class="calc-result-note">Final price confirmed at booking · Gratuity at client's discretion</p>
+                        </div>
+
+                        <div id="calc-spinner" class="calc-spinner calc-hidden" aria-label="Calculating..."></div>
+
+                        <a href="#" class="btn calc-book-btn calc-hidden" id="calc-book-btn">
+                            Book This Trip →
+                        </a>
                     </div>
                 </div>
 
@@ -120,182 +189,525 @@
     <!-- ==========================================================================
        BOOKING CTA SECTION
        ========================================================================== -->
-    <section class="cta-section" style="padding: 60px 0; background: var(--bg-alt); text-align: center; border-top: 1px solid var(--border-color);">
-        <div class="container" style="max-width: 600px;">
-            <h2 style="margin-bottom: 20px; font-size: 2rem; font-weight: 600; color: var(--text-main);">Ready to Reserve Your Chauffeur?</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6;">
+    <section class="cta-section rates-cta">
+        <div class="container rates-cta__inner">
+            <h2 class="rates-cta__heading">Ready to Reserve Your Chauffeur?</h2>
+            <p class="rates-cta__body">
                 Book your luxury black SUV ride in advance. Schedule directly using our Calendly system or contact our dispatch office for custom itineraries.
             </p>
-            <a href="index.html#contact" class="btn" style="padding: 15px 40px; font-size: 1.1rem; display: inline-block;" onclick="openCalendly('rates')">Book Your Ride Now</a>
+            <a href="index.html#contact" class="btn rates-cta__btn" onclick="openCalendly('rates')">Book Your Ride Now</a>
         </div>
     </section>
 
     <script>
-    // ── Trip Calculator (UI state only — pricing lives in /.netlify/functions/calculate-fare) ──
-    let calcGratPct = 20, calcIsCustom = true, calcDebounce = null;
+    (function () {
+        var MAX_STOPS   = 5;
+        var STOP_LABELS = ['A', 'B', 'C', 'D', 'E'];
 
-    function calcSetGrat(pct) {
-        calcGratPct = pct; calcIsCustom = false;
-        var wrap = document.getElementById('calc-custom-grat');
-        wrap.classList.remove('calc-custom-grat--visible');
-        wrap.setAttribute('aria-hidden', 'true');
-        document.getElementById('calc-custom-grat-val').value = '';
-        ['calc-btn15','calc-btn20','calc-btn25','calc-btnCustom'].forEach(function(id) {
-            document.getElementById(id).classList.remove('calc-grat-btn--active');
-        });
-        document.getElementById('calc-btn' + pct).classList.add('calc-grat-btn--active');
-        calcUpdate();
-    }
-
-    function calcSetCustom() {
-        calcIsCustom = true;
-        ['calc-btn15','calc-btn20','calc-btn25','calc-btnCustom'].forEach(function(id) {
-            document.getElementById(id).classList.remove('calc-grat-btn--active');
-        });
-        document.getElementById('calc-btnCustom').classList.add('calc-grat-btn--active');
-        var wrap = document.getElementById('calc-custom-grat');
-        wrap.classList.add('calc-custom-grat--visible');
-        wrap.setAttribute('aria-hidden', 'false');
-        document.getElementById('calc-custom-grat-val').focus();
-        calcUpdate();
-    }
-
-    // Debounced trigger — waits 450 ms after last input before hitting the function
-    function calcUpdate() {
-        clearTimeout(calcDebounce);
-        calcDebounce = setTimeout(calcFetch, 450);
-    }
-
-    // Build span nodes instead of injecting HTML strings
-    function setRangeNode(cls, text) {
-        var span = document.createElement('span');
-        span.className   = cls;
-        span.textContent = text;
-        var el = document.getElementById('calc-range');
-        el.textContent = '';
-        el.appendChild(span);
-    }
-
-    function setRangePair(low, high) {
-        var lo  = document.createElement('span');
-        var sep = document.createElement('span');
-        var hi  = document.createElement('span');
-        lo.className   = 'calc-range-val';
-        sep.className  = 'calc-range-sep';
-        hi.className   = 'calc-range-val';
-        lo.textContent  = '$' + low.toLocaleString();
-        sep.textContent = '–';
-        hi.textContent  = '$' + high.toLocaleString();
-        var el = document.getElementById('calc-range');
-        el.textContent = '';
-        el.appendChild(lo);
-        el.appendChild(sep);
-        el.appendChild(hi);
-    }
-
-    async function calcFetch() {
-        var miles    = parseFloat(document.getElementById('calc-miles').value) || 0;
-        var useGrat  = document.getElementById('calc-grat-toggle').checked;
-
-        // Gratuity controls enabled/disabled (pure UI)
-        document.getElementById('calc-grat-controls').classList.toggle('calc-grat-controls--off', !useGrat);
-
-        if (miles === 0) {
-            setRangeNode('calc-range-zero', '$0');
-            return;
+        // ATL-area airport detection (Hartsfield-Jackson, PDK, FTY)
+        function isAtlAirport(text) {
+            if (!text) return false;
+            return /(hartsfield|\b30337\b|peachtree[\s-]+dekalb|\bPDK\b|fulton\s+county\s+airport|\bFTY\b)/i.test(text);
         }
 
-        setRangeNode('calc-range-zero', '…');
+        // ── State ──
+        var stopCount        = 0;
+        var tripDurationMins = 0;
+        var lastFareRange    = '';
 
-        try {
-            var res = await fetch('/.netlify/functions/calculate-fare', {
-                method:  'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    miles:      miles,
-                    time:       document.getElementById('calc-time').value || '09:00',
-                    usePeach:   document.getElementById('calc-peach').checked,
-                    stops:      parseInt(document.getElementById('calc-stops').value)       || 0,
-                    stopMiles:  parseFloat(document.getElementById('calc-stop-miles').value) || 0,
-                    useGrat:    useGrat,
-                    gratPct:    calcGratPct,
-                    isCustom:   calcIsCustom,
-                    customGrat: parseFloat(document.getElementById('calc-custom-grat-val').value) || 0,
-                }),
+        // ── DOM refs ──
+        var $pickup      = document.getElementById('calc-pickup');
+        var $dropoff     = document.getElementById('calc-dropoff');
+        var $stopsBox    = document.getElementById('calc-stops-container');
+        var $stopDisp    = document.getElementById('calc-stop-count-display');
+        var $mgRow       = document.getElementById('calc-meetgreet-row');
+        var $status      = document.getElementById('calc-distance-status');
+        var $errMsg      = document.getElementById('calc-error-msg');
+        var $spinner     = document.getElementById('calc-spinner');
+        var $quoteEmpty  = document.getElementById('calc-quote-empty');
+        var $quoteResult = document.getElementById('calc-quote-result');
+        var $range       = document.getElementById('calc-range');
+        var $bookBtn     = document.getElementById('calc-book-btn');
+        var $calcBtn     = document.getElementById('calc-btn-estimate');
+        var $addPass     = document.getElementById('calc-add-pass');
+        var $passCont    = document.getElementById('calc-passengers');
+
+        // ── Stop stepper ──
+        document.getElementById('calc-dec-stops').addEventListener('click', function () {
+            if (stopCount === 0) return;
+            stopCount--;
+            $stopDisp.textContent = stopCount;
+            $stopsBox.removeChild($stopsBox.lastElementChild);
+            syncAirport();
+            autoCalculate();
+        });
+
+        document.getElementById('calc-inc-stops').addEventListener('click', function () {
+            if (stopCount >= MAX_STOPS) return;
+            addStopRow(stopCount);
+            stopCount++;
+            $stopDisp.textContent = stopCount;
+        });
+
+        function addStopRow(idx) {
+            var lbl  = STOP_LABELS[idx];
+            var wrap = document.createElement('div');
+            wrap.className = 'calc-stop-row';
+
+            // ── Main row: label · input · badge ──
+            var mainRow = document.createElement('div');
+            mainRow.className = 'calc-stop-main';
+
+            var labelEl = document.createElement('span');
+            labelEl.className   = 'calc-stop-label';
+            labelEl.textContent = 'Stop ' + lbl;
+
+            var routeRow = document.createElement('div');
+            routeRow.className = 'calc-route-row calc-stop-route-row';
+
+            var dot = document.createElement('span');
+            dot.className = 'calc-dot calc-dot--stop';
+            dot.setAttribute('aria-hidden', 'true');
+
+            var inp = document.createElement('input');
+            inp.type         = 'text';
+            inp.id           = 'calc-stop-' + idx;
+            inp.className    = 'calc-input';
+            inp.placeholder  = 'Stop ' + lbl + ' address';
+            inp.autocomplete = 'off';
+            inp.addEventListener('input', syncAirport);
+            inp.addEventListener('change', autoCalculate);
+
+            routeRow.appendChild(dot);
+            routeRow.appendChild(inp);
+
+            var badge = document.createElement('span');
+            badge.className   = 'calc-stop-badge';
+            badge.id          = 'calc-stop-badge-' + idx;
+            badge.textContent = '—';
+
+            mainRow.appendChild(labelEl);
+            mainRow.appendChild(routeRow);
+            mainRow.appendChild(badge);
+
+            // ── Info line: distance · duration ──
+            var legInfo = document.createElement('span');
+            legInfo.className = 'calc-stop-leginfo';
+            legInfo.id        = 'calc-stop-leginfo-' + idx;
+
+            wrap.appendChild(mainRow);
+            wrap.appendChild(legInfo);
+            $stopsBox.appendChild(wrap);
+
+            if (window.__mapsReady) attachAC('calc-stop-' + idx);
+        }
+
+        // ── Passengers ──
+        $addPass.addEventListener('click', function () {
+            var row    = document.createElement('div');
+            row.className = 'calc-pass-row';
+
+            var fields = document.createElement('div');
+            fields.className = 'calc-pass-fields';
+
+            ['Full Name', 'Phone'].forEach(function (lbl, i) {
+                var div = document.createElement('div');
+                var label = document.createElement('label');
+                label.className   = 'calc-field-label';
+                label.textContent = lbl;
+                var inp = document.createElement('input');
+                inp.type        = i === 1 ? 'tel' : 'text';
+                inp.className   = 'calc-input ' + (i === 1 ? 'calc-pass-phone' : 'calc-pass-name');
+                inp.placeholder = i === 1 ? '+1 (555) 000-0000' : 'Full name';
+                div.appendChild(label);
+                div.appendChild(inp);
+                fields.appendChild(div);
             });
 
-            if (!res.ok) throw new Error('calc error');
-            var data = await res.json();
+            var removeBtn = document.createElement('button');
+            removeBtn.type      = 'button';
+            removeBtn.className = 'calc-remove-pass-btn';
+            removeBtn.setAttribute('aria-label', 'Remove passenger');
+            removeBtn.textContent = '✕';
+            removeBtn.addEventListener('click', function () { $passCont.removeChild(row); });
 
-            // Peach Pass note from server
-            var note = document.getElementById('calc-peach-note');
-            if (document.getElementById('calc-peach').checked) {
-                note.style.display = 'block';
-                note.textContent   = data.peachOffPeak
-                    ? 'Off-peak — Peach Pass not typically needed. +$10 if still requested.'
-                    : data.peachLabel + ' rate applies';
-            } else {
-                note.style.display = 'none';
-            }
-
-            setRangePair(data.low, data.high);
-
-        } catch (_) {
-            setRangeNode('calc-range-zero', '—');
-        }
-    }
-
-    // Event wiring
-    document.getElementById('calc-grat-toggle').addEventListener('change', calcUpdate);
-    document.getElementById('calc-custom-grat-val').addEventListener('input', calcUpdate);
-    ['calc-time','calc-miles','calc-peach','calc-stops','calc-stop-miles'].forEach(function(id) {
-        document.getElementById(id).addEventListener('input',  calcUpdate);
-        document.getElementById(id).addEventListener('change', calcUpdate);
-    });
-
-    calcUpdate();
-
-    // ── Google Maps autocomplete + distance ──────────────────────────────────
-    window.initMap = function() {
-        var opts = { componentRestrictions: { country: 'us' } };
-        var pAC  = new google.maps.places.Autocomplete(document.getElementById('calc-pickup'),  opts);
-        var dAC  = new google.maps.places.Autocomplete(document.getElementById('calc-dropoff'), opts);
-        [pAC, dAC].forEach(function(ac) { ac.addListener('place_changed', calcGetDistance); });
-    };
-
-    function calcGetDistance() {
-        var pickup  = document.getElementById('calc-pickup').value.trim();
-        var dropoff = document.getElementById('calc-dropoff').value.trim();
-        var status  = document.getElementById('calc-distance-status');
-        if (!pickup || !dropoff) return;
-
-        status.className = 'calc-distance-status';
-        status.textContent = 'Calculating distance…';
-
-        new google.maps.DistanceMatrixService().getDistanceMatrix({
-            origins:      [pickup],
-            destinations: [dropoff],
-            travelMode:   google.maps.TravelMode.DRIVING,
-            unitSystem:   google.maps.UnitSystem.IMPERIAL,
-        }, function(res, stat) {
-            if (stat !== 'OK') {
-                status.className = 'calc-distance-status calc-distance-status--err';
-                status.textContent = 'Could not calculate distance — check addresses.';
-                return;
-            }
-            var el = res.rows[0].elements[0];
-            if (el.status !== 'OK') {
-                status.className = 'calc-distance-status calc-distance-status--err';
-                status.textContent = 'Route not found — try more specific addresses.';
-                return;
-            }
-            var miles = (el.distance.value / 1609.34).toFixed(1);
-            document.getElementById('calc-miles').value = miles;
-            status.className = 'calc-distance-status calc-distance-status--ok';
-            status.textContent = miles + ' miles · approx. ' + el.duration.text + ' drive';
-            calcUpdate();
+            row.appendChild(fields);
+            row.appendChild(removeBtn);
+            $passCont.appendChild(row);
         });
-    }
+
+        // ── Airport detection — show/hide Meet & Greet ──
+        function syncAirport() {
+            var texts = [$pickup.value, $dropoff.value];
+            for (var i = 0; i < stopCount; i++) {
+                var el = document.getElementById('calc-stop-' + i);
+                if (el) texts.push(el.value);
+            }
+            var hasAirport = texts.some(isAtlAirport);
+            $mgRow.classList.toggle('calc-hidden', !hasAirport);
+            if (!hasAirport) document.getElementById('calc-meetgreet').checked = false;
+        }
+
+        $pickup.addEventListener('input',  syncAirport);
+        $pickup.addEventListener('change', autoCalculate);
+        $dropoff.addEventListener('input', syncAirport);
+        $dropoff.addEventListener('change', autoCalculate);
+
+        // ── Google Maps — Places Autocomplete only ──
+        window.__mapsReady = false;
+        window.initMap = function () {
+            window.__mapsReady = true;
+            attachAC('calc-pickup');
+            attachAC('calc-dropoff');
+            for (var i = 0; i < stopCount; i++) attachAC('calc-stop-' + i);
+        };
+
+        function attachAC(id) {
+            var el = document.getElementById(id);
+            if (!el || !window.google) return;
+            var ac = new google.maps.places.Autocomplete(el, {
+                componentRestrictions: { country: 'us' },
+            });
+            ac.addListener('place_changed', function () {
+                syncAirport();
+                autoCalculate();
+            });
+        }
+
+        // ── Calculate ──
+        $calcBtn.addEventListener('click', calculate);
+
+        function getActiveRouteParams() {
+            var pickup  = $pickup.value.trim();
+            var dropoff = $dropoff.value.trim();
+            
+            var stops = [];
+            for (var i = 0; i < stopCount; i++) {
+                var el = document.getElementById('calc-stop-' + i);
+                if (el && el.value.trim()) {
+                    stops.push(el.value.trim());
+                }
+            }
+
+            if (!pickup || (stops.length === 0 && !dropoff)) {
+                return null;
+            }
+
+            // Determine pickup, dropoff, and stops to send to API
+            var sendPickup = pickup;
+            var sendDropoff = dropoff;
+            var sendStops = stops;
+
+            if (!dropoff) {
+                sendDropoff = stops[stops.length - 1];
+                sendStops = stops.slice(0, -1);
+            }
+
+            // Build activeLeginfoElements mapping to line up response legs with correct inputs
+            var activeLeginfoElements = [];
+            for (var i = 0; i < stopCount; i++) {
+                var el = document.getElementById('calc-stop-' + i);
+                if (el && el.value.trim()) {
+                    activeLeginfoElements.push({
+                        badge: document.getElementById('calc-stop-badge-' + i),
+                        info: document.getElementById('calc-stop-leginfo-' + i),
+                        isStop: true,
+                        stopIndex: i
+                    });
+                }
+            }
+            if (dropoff) {
+                activeLeginfoElements.push({
+                    info: document.getElementById('calc-dropoff-leginfo'),
+                    isStop: false
+                });
+            }
+
+            return {
+                payload: {
+                    pickup:       sendPickup,
+                    dropoff:      sendDropoff,
+                    stops:        sendStops,
+                    time:         document.getElementById('calc-time').value || '09:00',
+                    useHotLane:   document.getElementById('calc-hotlane').checked,
+                    useMeetGreet: document.getElementById('calc-meetgreet').checked,
+                },
+                activeLeginfoElements: activeLeginfoElements
+            };
+        }
+
+        function updateLegInfoAndDisplay(data, activeLeginfoElements) {
+            // Clear all badges and leg infos first
+            for (var k = 0; k < stopCount; k++) {
+                var b = document.getElementById('calc-stop-badge-' + k);
+                if (b) b.textContent = '—';
+                var inf = document.getElementById('calc-stop-leginfo-' + k);
+                if (inf) inf.textContent = '';
+            }
+            var destInfoEl = document.getElementById('calc-dropoff-leginfo');
+            if (destInfoEl) destInfoEl.textContent = '';
+
+            // Update distance status line
+            if (data.totalMiles) {
+                tripDurationMins = data.tripDurationMins || 0;
+                $status.textContent = data.totalMiles.toFixed(1) + ' mi · ~' + fmtDur(tripDurationMins);
+                $status.className   = 'calc-distance-status calc-distance-status--ok';
+            }
+
+            // Map each leg to the corresponding active leginfo element
+            if (Array.isArray(data.legs)) {
+                data.legs.forEach(function (leg, idx) {
+                    var target = activeLeginfoElements[idx];
+                    if (!target) return;
+                    if (target.isStop) {
+                        if (target.badge) {
+                            target.badge.textContent = leg.isFree ? 'Free' : '+$20';
+                            target.badge.className   = 'calc-stop-badge ' + (leg.isFree ? 'calc-stop-badge--free' : 'calc-stop-badge--fee');
+                        }
+                        if (target.info && leg.mi != null) {
+                            target.info.textContent = leg.mi.toFixed(1) + ' mi to this stop · ~' + fmtDur(leg.durationMins);
+                        }
+                    } else {
+                        if (target.info && leg.mi != null) {
+                            target.info.textContent = leg.mi.toFixed(1) + ' mi to destination · ~' + fmtDur(leg.durationMins);
+                        }
+                    }
+                });
+            }
+        }
+
+        function calculate() {
+            var routeData = getActiveRouteParams();
+            if (!routeData) {
+                showError('Please enter a pickup address and at least one stop or destination.');
+                return;
+            }
+            hideError();
+            showSpinner();
+
+            // Clear destination leg info display
+            var destInfoEl = document.getElementById('calc-dropoff-leginfo');
+            if (destInfoEl) destInfoEl.textContent = '';
+
+            fetchFare(routeData.payload, routeData.activeLeginfoElements);
+        }
+
+        function fmtDur(mins) {
+            return mins < 60
+                ? mins + ' min'
+                : Math.floor(mins / 60) + 'h ' + (mins % 60) + 'm';
+        }
+
+        async function fetchFare(payload, activeLeginfoElements) {
+            try {
+                var res = await fetch('/.netlify/functions/calculate-fare', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(payload),
+                });
+                var data = await res.json();
+                if (!res.ok) {
+                    showError(data.error || 'Could not retrieve estimate. Please try again.');
+                    return;
+                }
+
+                updateLegInfoAndDisplay(data, activeLeginfoElements);
+                renderRange(data);
+            } catch (err) {
+                showError('Could not retrieve estimate. Please try again.');
+            } finally {
+                hideSpinner();
+            }
+        }
+
+        async function fetchFareSilent(payload, activeLeginfoElements) {
+            try {
+                var res = await fetch('/.netlify/functions/calculate-fare', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(payload),
+                });
+                var data = await res.json();
+                if (!res.ok) return;
+
+                updateLegInfoAndDisplay(data, activeLeginfoElements);
+                renderRange(data);
+            } catch (_) {
+                // Ignore network errors silently
+            }
+        }
+
+        function autoCalculate() {
+            var routeData = getActiveRouteParams();
+            if (!routeData) return;
+            fetchFareSilent(routeData.payload, routeData.activeLeginfoElements);
+        }
+
+        function renderRange(data) {
+            var lo  = document.createElement('span');
+            var sep = document.createElement('span');
+            var hi  = document.createElement('span');
+            lo.className    = 'calc-range-val';
+            sep.className   = 'calc-range-sep';
+            hi.className    = 'calc-range-val';
+            lo.textContent  = '$' + data.low.toLocaleString();
+            sep.textContent = '–';
+            hi.textContent  = '$' + data.high.toLocaleString();
+            while ($range.firstChild) $range.removeChild($range.firstChild);
+            $range.appendChild(lo);
+            $range.appendChild(sep);
+            $range.appendChild(hi);
+
+            lastFareRange = '$' + data.low.toLocaleString() + ' – $' + data.high.toLocaleString();
+
+            $quoteEmpty.classList.add('calc-hidden');
+            $quoteResult.classList.remove('calc-hidden');
+            $bookBtn.classList.remove('calc-hidden');
+        }
+
+        // ── Book This Trip ──────────────────────────────────────────────────────
+        // Fires when the estimate panel book button is clicked.
+        // Sends to Calendly (with prefill) AND Web3Forms simultaneously so the
+        // client always gets a complete record even if the Calendly booking is
+        // abandoned.
+        $bookBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var trip = gatherTripData();
+            bookRateInquiry(trip);
+        });
+
+        function gatherTripData() {
+            // Stops
+            var stops = [];
+            for (var i = 0; i < stopCount; i++) {
+                var el = document.getElementById('calc-stop-' + i);
+                if (el && el.value.trim()) stops.push(el.value.trim());
+            }
+
+            // Add-ons
+            var addOns = [];
+            if (document.getElementById('calc-hotlane').checked)   addOns.push('HOT Lane Pass');
+            if (document.getElementById('calc-meetgreet').checked) addOns.push('Meet & Greet');
+
+            // Date/time display string
+            var date    = document.getElementById('calc-date').value;
+            var time    = document.getElementById('calc-time').value;
+            var dateTimeStr = [date, time ? 'at ' + fmtTime12(time) : ''].filter(Boolean).join(' ');
+
+            // All passengers
+            var passengers = [];
+            document.querySelectorAll('#calc-passengers .calc-pass-row').forEach(function (row) {
+                var n = row.querySelector('.calc-pass-name');
+                var p = row.querySelector('.calc-pass-phone');
+                if (n && n.value.trim()) {
+                    passengers.push({ name: n.value.trim(), phone: p ? p.value.trim() : '' });
+                }
+            });
+
+            // Referral
+            var refFirst = document.getElementById('calc-ref-first').value.trim();
+            var refLast  = document.getElementById('calc-ref-last').value.trim();
+
+            var primary = passengers.length ? passengers[0] : { name: 'Guest', phone: '' };
+
+            return {
+                pickup:        $pickup.value.trim(),
+                dropoff:       $dropoff.value.trim(),
+                stops:         stops,
+                dateTime:      dateTimeStr || 'Not specified',
+                addOns:        addOns,
+                fareRange:     lastFareRange || 'Not calculated',
+                passengers:    passengers,
+                primaryName:   primary.name,
+                primaryPhone:  primary.phone,
+                referral:      [refFirst, refLast].filter(Boolean).join(' ') || 'N/A',
+            };
+        }
+
+        function bookRateInquiry(trip) {
+            var stopsText  = trip.stops.length ? trip.stops.join(' → ') : 'None';
+            var addOnsText = trip.addOns.length ? trip.addOns.join(', ') : 'None';
+            var passText   = trip.passengers.map(function (p) {
+                return p.name + (p.phone ? ' (' + p.phone + ')' : '');
+            }).join(' | ') || 'Not provided';
+
+            // ── Calendly (prefill a1–a7 must match the event's question order) ──
+            if (window.Calendly) {
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/posh-limos/rate-inquiry',
+                    prefill: {
+                        name: trip.primaryName,
+                        customAnswers: {
+                            a1: trip.primaryPhone,
+                            a2: trip.pickup,
+                            a3: trip.dropoff,
+                            a4: stopsText,
+                            a5: trip.dateTime,
+                            a6: trip.fareRange,
+                            a7: addOnsText,
+                            a8: trip.referral,
+                        },
+                    },
+                });
+            }
+
+            // ── Web3Forms — always fires; silent on failure ──
+            sendRateInquiry(trip, stopsText, addOnsText, passText);
+        }
+
+        function sendRateInquiry(trip, stopsText, addOnsText, passText) {
+            fetch('https://api.web3forms.com/submit', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key:        'REPLACE_WITH_WEB3FORMS_KEY',
+                    subject:           'Rate Inquiry: ' + trip.pickup + ' → ' + trip.dropoff,
+                    from_name:         trip.primaryName,
+                    // ── Trip fields (match Calendly question order) ──
+                    pickup_location:   trip.pickup,
+                    final_destination: trip.dropoff,
+                    additional_stops:  stopsText,
+                    pickup_date_time:  trip.dateTime,
+                    estimated_fare:    trip.fareRange,
+                    trip_add_ons:      addOnsText,
+                    referred_by:       trip.referral,
+                    // ── Extra detail not in Calendly ──
+                    passengers:        passText,
+                }),
+            }).catch(function () { /* silent — Calendly handled the handoff */ });
+        }
+
+        // Convert "HH:MM" 24-hr to "h:MM AM/PM" for the date/time string
+        function fmtTime12(t) {
+            var parts = t.split(':');
+            var h = parseInt(parts[0], 10);
+            var m = parts[1];
+            var ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return h + ':' + m + ' ' + ampm;
+        }
+
+        function showError(msg) {
+            $errMsg.textContent = msg;
+            $errMsg.classList.remove('calc-hidden');
+        }
+        function hideError() { $errMsg.classList.add('calc-hidden'); }
+
+        function showSpinner() {
+            $spinner.classList.remove('calc-hidden');
+            $calcBtn.disabled = true;
+        }
+        function hideSpinner() {
+            $spinner.classList.add('calc-hidden');
+            $calcBtn.disabled = false;
+        }
+
+        // ── Auto-calculation triggers for options ──
+        document.getElementById('calc-hotlane').addEventListener('change', autoCalculate);
+        document.getElementById('calc-meetgreet').addEventListener('change', autoCalculate);
+        document.getElementById('calc-time').addEventListener('change', autoCalculate);
+
+    })();
     </script>
 
     <% if (locals.googleMapsKey) { %>

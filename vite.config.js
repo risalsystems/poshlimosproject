@@ -10,10 +10,16 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const googleMapsKey = env.GOOGLE_MAPS_API_KEY || "";
 
+  // Make .env values available to inline Netlify function handlers in dev
+  for (const [k, v] of Object.entries(env)) {
+    process.env[k] ??= v;
+  }
+
   return {
     root: STAGE,
 
     server: {
+      open: '/index.html',
       watch: {
         ignored: [`${STAGE}/**/*.html`],
       },

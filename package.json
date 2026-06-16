@@ -22,6 +22,13 @@
   "homepage": "https://github.com/Rwalker106/PoshLimos-Project#readme",
   "devDependencies": {
     "ejs": "^3.1.10",
-    "vite": "^8.0.0"
+    "glob": "^13.0.6",
+    "sharp": "^0.35.1",
+    "svgo": "^4.0.1",
+    "vite": "^8.0.0",
+    "vite-imagetools": "^10.0.1",
+    "vite-plugin-html-inject": "^1.1.2",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-sitemap": "^0.8.2"
   }
 }

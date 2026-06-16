@@ -1194,6 +1194,10 @@ body.light-theme .form-group select {
   margin-top: 80px; /* navbar offset */
 }
 
+.details-page-header--rates {
+  background-image: url('assets/hero_atlanta.png');
+}
+
 .details-page-header::before {
   content: "";
   position: absolute;
@@ -2647,4 +2651,360 @@ body.light-theme .social-icon-btn:hover {
   .footer-legal-links {
     justify-content: center;
   }
+}
+
+/* ==========================================================================
+   Calculator v2 — Stop stepper, itemized receipt, passenger section
+   ========================================================================== */
+
+.calc-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.calc-step-num {
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Stop count stepper widget */
+.calc-stepper-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.calc-stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.calc-stepper-btn {
+  background: var(--bg-secondary);
+  border: none;
+  color: var(--text-primary);
+  width: 34px;
+  height: 34px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-speed) ease;
+}
+.calc-stepper-btn:hover { background: var(--bg-tertiary); }
+
+.calc-stepper-display {
+  width: 36px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-tertiary);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+/* Dynamic stop rows */
+.calc-stop-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.calc-stop-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calc-stop-leginfo {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding-left: 58px; /* align under the input (label width + gap) */
+  min-height: 1em;
+}
+
+.calc-stop-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 48px;
+}
+
+.calc-stop-badge {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.calc-stop-badge--free { color: #4caf82; border-color: #4caf82; }
+.calc-stop-badge--fee  { color: var(--accent); border-color: var(--accent); }
+
+/* Stop dot colour */
+.calc-dot--stop { background-color: var(--text-muted); }
+
+/* Check rows with subtitle (trip options) */
+.calc-check-row--block {
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: border-color var(--transition-speed) ease;
+}
+.calc-check-row--block:last-child { margin-bottom: 0; }
+.calc-check-row--block:hover { border-color: var(--accent); }
+
+.calc-check-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* Passenger section */
+.calc-add-pass-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+.calc-add-pass-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.calc-pass-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.calc-pass-row:last-child { margin-bottom: 0; }
+
+.calc-pass-fields {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.calc-remove-pass-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #e05c4a;
+  width: 38px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: background var(--transition-speed) ease;
+}
+.calc-remove-pass-btn:hover { background: rgba(224, 92, 74, 0.1); }
+
+/* Itemized receipt in quote panel */
+.calc-receipt {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.calc-receipt-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.84rem;
+}
+
+.calc-receipt-desc { color: var(--text-secondary); }
+
+.calc-receipt-amt {
+  color: var(--text-primary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.calc-receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--bg-tertiary);
+  text-align: left;
+}
+
+.calc-receipt-total-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.calc-receipt-total-amt {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Quote panel empty state */
+.calc-quote-empty {
+  text-align: center;
+  padding: 36px 16px;
+  color: var(--text-muted);
+}
+
+.calc-quote-empty-icon {
+  font-size: 2.2rem;
+  opacity: 0.3;
+  margin-bottom: 12px;
+}
+
+.calc-quote-empty p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.calc-quote-sub {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  margin-top: -4px;
+}
+
+/* Error message */
+.calc-error-msg {
+  background: rgba(224, 92, 74, 0.1);
+  border: 1px solid #e05c4a;
+  border-radius: 8px;
+  color: #e05c4a;
+  font-size: 0.83rem;
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+
+/* Spinner */
+.calc-spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: calcSpin 0.7s linear infinite;
+  margin: 20px auto;
+}
+@keyframes calcSpin { to { transform: rotate(360deg); } }
+
+/* Utility — JS-controlled visibility (classList.add/remove) */
+.calc-hidden { display: none; }
+
+/* Full-width Calculate button */
+.calc-btn-estimate { width: 100%; margin-top: 8px; }
+
+/* Rates page booking CTA */
+.rates-cta {
+  padding: 60px 0;
+  background: var(--bg-secondary);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.rates-cta__inner { max-width: 600px; }
+.rates-cta__heading {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.rates-cta__body {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.rates-cta__btn { padding: 15px 40px; font-size: 1.1rem; }
+
+/* Stop route-row inside a flex stop-row (JS-generated) */
+.calc-stop-route-row { flex: 1; margin: 0; }
+
+/* Route row variants */
+.calc-route-row--pickup { margin-bottom: 14px; }
+
+/* Stepper row label variants */
+.calc-stepper-label { margin: 0; white-space: nowrap; }
+.calc-stepper-note  { margin: 0; font-style: italic; flex: 1; }
+
+/* Passengers section-head layout */
+.calc-section-head--pass  { justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.calc-section-head-inner  { display: flex; align-items: center; gap: 10px; }
+
+/* Last check-row in a group — no bottom margin */
+.calc-check-row--nomb { margin-bottom: 0; }
+
+/* Result note top gap */
+.calc-result-note--mt { margin-top: 12px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .calc-pass-fields { grid-template-columns: 1fr; }
+  .calc-stepper-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .calc-pass-row { flex-wrap: wrap; }
+  .calc-remove-pass-btn { width: 100%; height: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calc-spinner { animation: none; }
 }
