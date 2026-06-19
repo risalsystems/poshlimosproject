@@ -126,7 +126,7 @@ include('./partials/nav.html') %>
             (ATL) and private regional aviation terminals. Real-time flight
             tracking included.
           </p>
-          <a href="airport-transfers.html" class="service-link">
+          <a href="airport-transfers.html" class="service-link" aria-label="Explore Airport Transfers details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -157,7 +157,7 @@ include('./partials/nav.html') %>
             clients. Priority scheduling, consistent chauffeur, and simplified
             billing — no booking friction, every time.
           </p>
-          <a href="signature-accounts.html" class="service-link">
+          <a href="signature-accounts.html" class="service-link" aria-label="Explore Signature Accounts details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -188,7 +188,7 @@ include('./partials/nav.html') %>
             carpet service, chilled amenities, and an elegant black SUV
             presentation.
           </p>
-          <a href="formal-celebrations.html" class="service-link">
+          <a href="formal-celebrations.html" class="service-link" aria-label="Explore Formal Celebrations details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -219,7 +219,7 @@ include('./partials/nav.html') %>
             pickups when you prefer not to drive. Sit back and enjoy the luxury
             cabin.
           </p>
-          <a href="safe-driver-pickup.html" class="service-link">
+          <a href="safe-driver-pickup.html" class="service-link" aria-label="Explore Safe Driver Pickup details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -250,7 +250,7 @@ include('./partials/nav.html') %>
             concerts, or a night out in Midtown. Avoid parking hassles
             completely.
           </p>
-          <a href="casual-events.html" class="service-link">
+          <a href="casual-events.html" class="service-link" aria-label="Explore Casual Events details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -281,7 +281,7 @@ include('./partials/nav.html') %>
             roadshows in Buckhead and Downtown. Tailored corporate accounts
             available.
           </p>
-          <a href="corporate-events.html" class="service-link">
+          <a href="corporate-events.html" class="service-link" aria-label="Explore Corporate Events details">
             Explore Details
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -344,7 +344,7 @@ include('./partials/nav.html') %>
         <div class="review-client">
           <div class="client-avatar">MV</div>
           <div class="client-info">
-            <h4>Marcus V.</h4>
+            <h3>Marcus V.</h3>
             <span>Executive VP, Tech Global</span>
           </div>
         </div>
@@ -387,7 +387,7 @@ include('./partials/nav.html') %>
         <div class="review-client">
           <div class="client-avatar">SL</div>
           <div class="client-info">
-            <h4>Sarah & David L.</h4>
+            <h3>Sarah & David L.</h3>
             <span>Atlanta Residents</span>
           </div>
         </div>
@@ -430,7 +430,7 @@ include('./partials/nav.html') %>
         <div class="review-client">
           <div class="client-avatar">RH</div>
           <div class="client-info">
-            <h4>Dr. Robert H.</h4>
+            <h3>Dr. Robert H.</h3>
             <span>Physician</span>
           </div>
         </div>
@@ -447,7 +447,7 @@ include('./partials/nav.html') %>
     <!-- Left Side: About Us -->
     <div class="about-col reveal">
       <span>Who We Are</span>
-      <h3>Posh Limousines of Atlanta</h3>
+      <h2>Posh Limousines of Atlanta</h2>
       <p>
         Posh Limousines of Atlanta is a premier transportation provider
         dedicated to delivering exceptional black SUV chauffeur services. We
@@ -484,7 +484,7 @@ include('./partials/nav.html') %>
 
     <!-- Right Side: Contact / Book Your Ride -->
     <div class="contact-col reveal" id="contact">
-      <h3>Contact Us</h3>
+      <h2>Contact Us</h2>
       <p>
         Fill out the details below to request a quote or confirm a booking. We
         will follow up immediately.
@@ -508,7 +508,7 @@ include('./partials/nav.html') %>
         id="contact-form"
         class="contact-form"
       >
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+        <input type="hidden" name="access_key" value="e06e426f-015d-4404-90b3-cd002788787a" />
         <input
           type="hidden"
           name="subject"
@@ -521,8 +521,10 @@ include('./partials/nav.html') %>
           style="display: none"
         />
 
+        <p class="form-required-note"><span aria-hidden="true">*</span> All fields are required</p>
+
         <div class="form-group">
-          <label for="form-name">Full Name</label>
+          <label for="form-name">Full Name <span class="req-star" aria-hidden="true">*</span></label>
           <input
             type="text"
             name="name"
@@ -534,7 +536,7 @@ include('./partials/nav.html') %>
 
         <div class="form-row-2">
           <div class="form-group">
-            <label for="form-email">Email Address</label>
+            <label for="form-email">Email Address <span class="req-star" aria-hidden="true">*</span></label>
             <input
               type="email"
               name="email"
@@ -544,7 +546,7 @@ include('./partials/nav.html') %>
             />
           </div>
           <div class="form-group">
-            <label for="form-phone">Phone Number</label>
+            <label for="form-phone">Phone Number <span class="req-star" aria-hidden="true">*</span></label>
             <input
               type="tel"
               name="phone"
@@ -557,7 +559,7 @@ include('./partials/nav.html') %>
 
         <div class="form-row-2">
           <div class="form-group">
-            <label for="form-service">Required Service</label>
+            <label for="form-service">Required Service <span class="req-star" aria-hidden="true">*</span></label>
             <select name="service_type" id="form-service" required>
               <option value="" disabled selected>Select a Service</option>
               <option value="Airport Transfers">Airport Transfers</option>
@@ -568,14 +570,14 @@ include('./partials/nav.html') %>
             </select>
           </div>
           <div class="form-group">
-            <label for="form-date">Pickup Date</label>
+            <label for="form-date">Pickup Date <span class="req-star" aria-hidden="true">*</span></label>
             <input type="date" name="pickup_date" id="form-date" required />
           </div>
         </div>
 
         <div class="form-group">
           <label for="form-message"
-            >Special Instructions / Routing Details</label
+            >Special Instructions / Routing Details <span class="req-star" aria-hidden="true">*</span></label
           >
           <textarea
             name="message"

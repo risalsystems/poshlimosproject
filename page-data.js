@@ -16,6 +16,7 @@ const pageData = {
     ogImage: "assets/hero_atlanta.png",
     heroImage: "assets/hero_atlanta.png",
     navPage: "home",
+    calendlyType: "home",
     isHomePage: true,
     pageSchema: {
       "@context": "https://schema.org",
@@ -36,6 +37,7 @@ const pageData = {
     ogImage: "assets/service_airport.png",
     heroImage: "assets/service_airport.png",
     navPage: "services",
+    calendlyType: "airport",
     isHomePage: false,
     pageSchema: [
       {
@@ -136,6 +138,7 @@ const pageData = {
     ogImage: "assets/service_casual.png",
     heroImage: "assets/service_casual.png",
     navPage: "services",
+    calendlyType: "casual",
     isHomePage: false,
     pageSchema: [
       {
@@ -236,6 +239,7 @@ const pageData = {
     ogImage: "assets/service_corporate.png",
     heroImage: "assets/service_corporate.png",
     navPage: "services",
+    calendlyType: "corporate",
     isHomePage: false,
     pageSchema: [
       {
@@ -336,6 +340,7 @@ const pageData = {
     ogImage: "assets/service_formal.png",
     heroImage: "assets/service_formal.png",
     navPage: "services",
+    calendlyType: "formal",
     isHomePage: false,
     pageSchema: [
       {
@@ -436,6 +441,7 @@ const pageData = {
     ogImage: "assets/service_safedriver.png",
     heroImage: "assets/service_safedriver.png",
     navPage: "services",
+    calendlyType: "safe-driver",
     isHomePage: false,
     pageSchema: [
       {
@@ -536,6 +542,7 @@ const pageData = {
     ogImage: "assets/service_corporate.png",
     heroImage: "assets/service_corporate.png",
     navPage: "services",
+    calendlyType: "signature",
     isHomePage: false,
     pageSchema: [
       {
@@ -630,6 +637,7 @@ const pageData = {
     ogImage: "assets/hero_atlanta.png",
     heroImage: "assets/hero_atlanta.png",
     navPage: "services",
+    calendlyType: "signature",
     isHomePage: false,
     pageSchema: [
       {
@@ -715,6 +723,7 @@ const pageData = {
     ogImage: "assets/hero_atlanta.png",
     heroImage: "assets/hero_atlanta.png",
     navPage: "about",
+    calendlyType: "home",
     isHomePage: false,
     pageSchema: {
       "@context": "https://schema.org",
@@ -836,6 +845,7 @@ const pageData = {
     ogImage: "assets/hero_atlanta.png",
     heroImage: "assets/hero_atlanta.png",
     navPage: "rates",
+    calendlyType: "rates",
     isHomePage: false,
     pageSchema: [
       {

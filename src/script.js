@@ -29,12 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
 
   if (hamburger && navMenu) {
+    hamburger.setAttribute("aria-expanded", "false");
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");
       navMenu.classList.toggle("active");
 
+      const isOpen = navMenu.classList.contains("active");
+      hamburger.setAttribute("aria-expanded", String(isOpen));
+
       // Toggle body scroll locking when mobile menu is active
-      if (navMenu.classList.contains("active")) {
+      if (isOpen) {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "";
@@ -46,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
       });
     });
@@ -232,13 +237,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // Open Calendly widget
 function openCalendly(type) {
   const urls = {
-    home:           "https://calendly.com/posh-limos",
-    airport:        "https://calendly.com/posh-limos/airport",
-    formal:         "https://calendly.com/posh-limos/formal",
-    "safe-driver":  "https://calendly.com/posh-limos/safe-driver",
-    corporate:      "https://calendly.com/posh-limos/corporate",
-    casual:         "https://calendly.com/posh-limos/casual",
-    "rate-inquiry": "https://calendly.com/posh-limos/rate-inquiry",
+    home:           "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    airport:        "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    rates:          "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    formal:         "https://calendly.com/atlantaposhlimos/formal",
+    "safe-driver":  "https://calendly.com/atlantaposhlimos/safe-driver",
+    corporate:      "https://calendly.com/atlantaposhlimos/corporate",
+    casual:         "https://calendly.com/atlantaposhlimos/casual",
+    "signature":    "https://calendly.com/atlantaposhlimos/signature",
   }
   if (urls[type]) {
     Calendly.initPopupWidget({
