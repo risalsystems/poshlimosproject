@@ -446,18 +446,24 @@
                 // 1. Try to get text from placePrediction (no API details cost)
                 var prediction = e.placePrediction || (e.detail && e.detail.placePrediction);
                 if (prediction && prediction.text) {
-                    text = prediction.text;
+                    text = typeof prediction.text === 'string' ? prediction.text : prediction.text.toString();
                 }
                 
                 // 2. Fallback to fetching formattedAddress from Place object
                 if (!text) {
                     var place = e.place || (e.detail && e.detail.place) || pac.value;
-                    if (place && typeof place.fetchFields === 'function') {
-                        try {
-                            await place.fetchFields({ fields: ['formattedAddress'] });
-                            text = place.formattedAddress || '';
-                        } catch (err) {
-                            console.error("Error fetching place fields:", err);
+                    if (place) {
+                        if (typeof place.fetchFields === 'function') {
+                            try {
+                                await place.fetchFields({ fields: ['formattedAddress'] });
+                                text = place.formattedAddress || '';
+                            } catch (err) {
+                                console.error("Error fetching place fields:", err);
+                            }
+                        } else if (typeof place === 'string') {
+                            text = place;
+                        } else if (typeof place.toString === 'function') {
+                            text = place.toString();
                         }
                     }
                 }

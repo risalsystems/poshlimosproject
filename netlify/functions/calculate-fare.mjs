@@ -45,7 +45,7 @@ function getMockLegs(pickup, dropoff, stops) {
   return mockLegs;
 }
 
-async function getDirections(pickup, dropoff, stops, optimize = false) {
+async function getDirections(pickup, dropoff, stops, optimize = false, referer = 'https://www.atlantaposhlimos.com/') {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY ?? '';
   if (!apiKey) {
     console.warn("No Google Maps API key provided. Using mock legs.");
@@ -79,7 +79,8 @@ async function getDirections(pickup, dropoff, stops, optimize = false) {
       headers: {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': fieldMask
+        'X-Goog-FieldMask': fieldMask,
+        'Referer': referer
       },
       body: JSON.stringify(requestBody)
     });
@@ -120,7 +121,11 @@ async function getDirections(pickup, dropoff, stops, optimize = false) {
   }
 
   try {
-    const res = await fetch(`https://maps.googleapis.com/maps/api/directions/json?${params}`);
+    const res = await fetch(`https://maps.googleapis.com/maps/api/directions/json?${params}`, {
+      headers: {
+        'Referer': referer
+      }
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (data.status !== 'OK') {
@@ -165,6 +170,8 @@ export const handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
+  const referer = event.headers?.referer || event.headers?.origin || 'https://www.atlantaposhlimos.com/';
+
   let body;
   try {
     body = JSON.parse(event.body ?? '{}');
@@ -197,11 +204,11 @@ export const handler = async (event) => {
 
     try {
       // 1. Get the actual optimized driven route (best sequence of stops)
-      legs = await getDirections(pickup, dropoff, cleanStops, true);
+      legs = await getDirections(pickup, dropoff, cleanStops, true, referer);
 
       // 2. Measure direct routes from pickup to each stop in parallel (no optimization)
       if (cleanStops.length > 0) {
-        const promises = cleanStops.map(stop => getDirections(pickup, stop, [], false));
+        const promises = cleanStops.map(stop => getDirections(pickup, stop, [], false, referer));
         const results = await Promise.all(promises);
         stopDirectLegs = results.map(res => res[0]); // each returns 1 leg
       }
