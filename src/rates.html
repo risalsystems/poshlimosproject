@@ -439,14 +439,8 @@
                 componentRestrictions: { country: 'us' },
             });
             container.appendChild(pac);
-            pac.addEventListener('gmp-placeselect', async function (e) {
-                var inputText = pac.inputValue || '';
-                try {
-                    await e.place.fetchFields({ fields: ['formattedAddress'] });
-                    addrState[id] = e.place.formattedAddress || inputText;
-                } catch (_) {
-                    addrState[id] = inputText;
-                }
+            pac.addEventListener('gmp-placeselect', function (e) {
+                addrState[id] = pac.inputValue || '';
                 syncAirport();
                 autoCalculate();
             });
