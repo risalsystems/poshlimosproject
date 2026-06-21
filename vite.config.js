@@ -8,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const googleMapsKey = env.GOOGLE_MAPS_API_KEY || "";
+  const googleMapsKey = env.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY || "";
 
   // Make .env values available to inline Netlify function handlers in dev
   for (const [k, v] of Object.entries(env)) {
