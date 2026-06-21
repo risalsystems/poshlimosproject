@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SFV7EXN54K"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-SFV7EXN54K");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= locals.title %></title>
@@ -21,61 +35,92 @@
 
     <!-- Open Graph Protocol (OG) Metadata -->
     <meta property="og:title" content="<%= locals.ogTitle || locals.title %>" />
-    <meta property="og:description" content="<%= locals.ogDescription || locals.description %>" />
-    <meta property="og:image" content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>" />
-    <meta property="og:url" content="<%= locals.canonical || 'https://www.atlantaposhlimos.com' %>" />
+    <meta
+      property="og:description"
+      content="<%= locals.ogDescription || locals.description %>"
+    />
+    <meta
+      property="og:image"
+      content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>"
+    />
+    <meta
+      property="og:url"
+      content="<%= locals.canonical || 'https://www.atlantaposhlimos.com' %>"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Posh Limousines of Atlanta" />
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<%= locals.ogTitle || locals.title %>" />
-    <meta name="twitter:description" content="<%= locals.ogDescription || locals.description %>" />
-    <meta name="twitter:image" content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>" />
+    <meta
+      name="twitter:title"
+      content="<%= locals.ogTitle || locals.title %>"
+    />
+    <meta
+      name="twitter:description"
+      content="<%= locals.ogDescription || locals.description %>"
+    />
+    <meta
+      name="twitter:image"
+      content="<%= locals.ogImage || 'assets/hero_atlanta.png' %>"
+    />
 
     <!-- Primary Stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <% if (locals.heroImage) { %>
-    <link rel="preload" as="image" href="<%= locals.heroImage %>">
+    <link rel="preload" as="image" href="<%= locals.heroImage %>" />
     <% } %>
     <!-- Calendly link widget begin -->
-    <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+    <link
+      href="https://calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Posh Limousines of Atlanta",
-      "image": "https://www.atlantaposhlimos.com/assets/hero_atlanta.png",
-      "description": "Atlanta's premier black SUV chauffeur service. Professional transportation featuring Lincoln Navigators, Chevy Suburbans, and Tahoes for airport pickups, corporate events, weddings, and more. Fully licensed and commercially insured.",
-      "url": "https://www.atlantaposhlimos.com",
-      "telephone": "+1-123-456-7890",
-      "priceRange": "$$-$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Main St",
-        "addressLocality": "Atlanta",
-        "addressRegion": "GA",
-        "postalCode": "30303",
-        "addressCountry": "US"
-      },
-      "areaServed": "Atlanta Metropolitan Area",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday", "Tuesday", "Wednesday", "Thursday",
-          "Friday", "Saturday", "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Posh Limousines of Atlanta",
+        "image": "https://www.atlantaposhlimos.com/assets/hero_atlanta.png",
+        "description": "Atlanta's premier black SUV chauffeur service. Professional transportation featuring Lincoln Navigators, Chevy Suburbans, and Tahoes for airport pickups, corporate events, weddings, and more. Fully licensed and commercially insured.",
+        "url": "https://www.atlantaposhlimos.com",
+        "telephone": "+1-123-456-7890",
+        "priceRange": "$$-$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Main St",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "postalCode": "30303",
+          "addressCountry": "US"
+        },
+        "areaServed": "Atlanta Metropolitan Area",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
       }
-    }
     </script>
     <% if (locals.pageSchema) { %>
     <script type="application/ld+json">
       <%- JSON.stringify(locals.pageSchema, null, 2) %>
     </script>
     <% } %>
-    <script src="https://calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
+    <script
+      src="https://calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      defer
+    ></script>
   </head>
-  <body>
+  <body></body>
+</html>
