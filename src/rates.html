@@ -439,15 +439,28 @@
                 componentRestrictions: { country: 'us' },
             });
             container.appendChild(pac);
-            pac.addEventListener('gmp-placeselect', function (e) {
-                addrState[id] = pac.inputValue || '';
+
+            var handleSelect = function (e) {
+                var text = '';
+                if (e.placePrediction && e.placePrediction.text) {
+                    text = e.placePrediction.text;
+                } else if (pac.value) {
+                    text = pac.value;
+                }
+                addrState[id] = text;
                 syncAirport();
                 autoCalculate();
-            });
-            pac.addEventListener('gmp-input', function () {
-                addrState[id] = pac.inputValue || '';
+            };
+
+            pac.addEventListener('gmp-placeselect', handleSelect);
+            pac.addEventListener('gmp-select', handleSelect);
+
+            var handleInput = function () {
+                addrState[id] = pac.value || '';
                 syncAirport();
-            });
+            };
+            pac.addEventListener('input', handleInput);
+            pac.addEventListener('gmp-input', handleInput);
         }
 
         // ── Calculate ──
@@ -653,8 +666,8 @@
             // Stops
             var stops = [];
             for (var i = 0; i < stopCount; i++) {
-                var el = document.getElementById('calc-stop-' + i);
-                if (el && el.value.trim()) stops.push(el.value.trim());
+                var addr = (addrState['calc-stop-' + i] || '').trim();
+                if (addr) stops.push(addr);
             }
 
             // Add-ons
@@ -797,7 +810,7 @@
     </script>
 
     <% if (locals.googleMapsKey) { %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= locals.googleMapsKey %>&libraries=places&callback=initMap&loading=async" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=beta&key=<%= locals.googleMapsKey %>&libraries=places&callback=initMap&loading=async" async defer></script>
     <% } %>
 
 <%- include('./partials/footer.html') %>
