@@ -440,13 +440,17 @@
             });
             container.appendChild(pac);
             pac.addEventListener('gmp-placeselect', async function (e) {
-                await e.place.fetchFields({ fields: ['formattedAddress'] });
-                addrState[id] = e.place.formattedAddress || '';
+                try {
+                    await e.place.fetchFields({ fields: ['formattedAddress'] });
+                    addrState[id] = e.place.formattedAddress || pac.value || '';
+                } catch (_) {
+                    addrState[id] = pac.value || '';
+                }
                 syncAirport();
                 autoCalculate();
             });
             pac.addEventListener('gmp-input', function () {
-                addrState[id] = pac.inputValue || '';
+                addrState[id] = pac.value || '';
                 syncAirport();
             });
         }
