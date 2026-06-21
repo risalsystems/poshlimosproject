@@ -440,14 +440,30 @@
             });
             container.appendChild(pac);
 
-            var handleSelect = function (e) {
+            var handleSelect = async function (e) {
                 var text = '';
-                if (e.placePrediction && e.placePrediction.text) {
-                    text = e.placePrediction.text;
-                } else if (pac.value) {
-                    text = pac.value;
+                
+                // 1. Try to get text from placePrediction (no API details cost)
+                var prediction = e.placePrediction || (e.detail && e.detail.placePrediction);
+                if (prediction && prediction.text) {
+                    text = prediction.text;
                 }
-                addrState[id] = text;
+                
+                // 2. Fallback to fetching formattedAddress from Place object
+                if (!text) {
+                    var place = e.place || (e.detail && e.detail.place) || pac.value;
+                    if (place && typeof place.fetchFields === 'function') {
+                        try {
+                            await place.fetchFields({ fields: ['formattedAddress'] });
+                            text = place.formattedAddress || '';
+                        } catch (err) {
+                            console.error("Error fetching place fields:", err);
+                        }
+                    }
+                }
+                
+                // Ensure text is always a string to prevent TypeError on .trim()
+                addrState[id] = typeof text === 'string' ? text : '';
                 syncAirport();
                 autoCalculate();
             };
@@ -456,8 +472,12 @@
             pac.addEventListener('gmp-select', handleSelect);
 
             var handleInput = function () {
-                addrState[id] = pac.value || '';
-                syncAirport();
+                // If the input was cleared, pac.value is null/undefined.
+                // We also reset state if they are typing a new address.
+                if (!pac.value) {
+                    addrState[id] = '';
+                    syncAirport();
+                }
             };
             pac.addEventListener('input', handleInput);
             pac.addEventListener('gmp-input', handleInput);
