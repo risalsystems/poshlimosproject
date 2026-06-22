@@ -2,6 +2,9 @@ import { readFileSync, writeFileSync } from "fs";
 import { globSync } from "glob";
 import { JSDOM } from "jsdom";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Requires JSDOM and glob packages: npm install jsdom glob
 // This script extracts visible text from HTML files in the dist directory and writes it to a text file.
