@@ -240,11 +240,11 @@ function openCalendly(type) {
     home:           "https://calendly.com/atlantaposhlimos/rate-inquiry",
     airport:        "https://calendly.com/atlantaposhlimos/rate-inquiry",
     rates:          "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    formal:         "https://calendly.com/atlantaposhlimos/formal",
-    "safe-driver":  "https://calendly.com/atlantaposhlimos/safe-driver",
-    corporate:      "https://calendly.com/atlantaposhlimos/corporate",
-    casual:         "https://calendly.com/atlantaposhlimos/casual",
-    "signature":    "https://calendly.com/atlantaposhlimos/signature",
+    formal:         "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    "safe-driver":  "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    corporate:      "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    casual:         "https://calendly.com/atlantaposhlimos/rate-inquiry",
+    "signature":    "https://calendly.com/atlantaposhlimos/rate-inquiry",
   }
   if (urls[type]) {
     Calendly.initPopupWidget({
