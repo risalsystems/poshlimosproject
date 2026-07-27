@@ -2300,6 +2300,21 @@ footer {
   font-style: italic;
 }
 
+.footer-social-col p.footer-phone {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.footer-phone a {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.footer-phone a:hover {
+  text-decoration: underline;
+}
+
 .footer-social-col p {
   color: var(--text-secondary);
   font-size: 0.95rem;
