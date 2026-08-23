@@ -45,6 +45,14 @@ function getMockLegs(pickup, dropoff, stops) {
   return mockLegs;
 }
 
+/**
+ * Fetches route legs from Google Maps Platform, preferring the new Routes API
+ * and falling back to the legacy Directions API if that call fails.
+ *
+ * Google APIs used (both require `GOOGLE_MAPS_API_KEY` with billing enabled):
+ * - Routes API (`routes.googleapis.com/directions/v2:computeRoutes`) — primary.
+ * - Directions API, legacy (`maps.googleapis.com/maps/api/directions/json`) — fallback.
+ */
 async function getDirections(pickup, dropoff, stops, optimize = false, referer = 'https://www.atlantaposhlimos.com/') {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY ?? '';
   if (!apiKey) {
