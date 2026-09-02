@@ -50,6 +50,70 @@
   to     = "/tos.html"
   status = 200
 
+# ── Redirect raw .html URLs to their clean equivalent ────────────────────────
+# Without these, both "/page" (served via the 200 rewrites above) and
+# "/page.html" (the real file Netlify serves by default) stay independently
+# live and indexable — a duplicate-content pair for every page on the site.
+[[redirects]]
+  from   = "/airport-transfers.html"
+  to     = "/airport-transfers"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/signature-accounts.html"
+  to     = "/signature-accounts"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/posh-preferred.html"
+  to     = "/posh-preferred"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/casual-events.html"
+  to     = "/casual-events"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/corporate-events.html"
+  to     = "/corporate-events"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/formal-celebrations.html"
+  to     = "/formal-celebrations"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/safe-driver-pickup.html"
+  to     = "/safe-driver-pickup"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/privacy-policy.html"
+  to     = "/privacy-policy"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/tos.html"
+  to     = "/tos"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "/index.html"
+  to     = "/"
+  status = 301
+  force  = true
+
 # ── Security & cache headers ──────────────────────────────────────────────────
 [[headers]]
   for = "/*"
