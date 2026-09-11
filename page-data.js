@@ -18,12 +18,60 @@ const pageData = {
     navPage: "home",
     calendlyType: "home",
     isHomePage: true,
-    pageSchema: {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Posh Limousines of Atlanta",
-      "url": "https://www.atlantaposhlimos.com",
-    },
+    pageSchema: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Posh Limousines of Atlanta",
+        "url": "https://www.atlantaposhlimos.com",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Posh Limousines of Atlanta a limousine company, or do you use SUVs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We operate a fleet of late-model black Lincoln Navigators, Chevy Suburbans, and Tahoes rather than traditional stretch limousines. Clients choose Posh Limousines of Atlanta because a black SUV chauffeur service delivers the same white-glove, limousine-level experience — a professional chauffeur, curbside service, and an immaculately maintained vehicle — with more passenger and luggage room and a more discreet, modern profile than a classic stretch limo.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "What areas does Posh Limousines of Atlanta serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We provide black SUV chauffeur and transportation service throughout the Atlanta metropolitan area, including Buckhead, Midtown, Downtown, Sandy Springs, Alpharetta, and Marietta, plus Hartsfield-Jackson Atlanta International Airport. Our Safe Driver service also covers longer interstate routes to cities such as Savannah, Charlotte, and Birmingham.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "How is Posh Limousines different from Uber, Lyft, or a standard taxi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every Posh Limousines chauffeur is personally vetted and background-checked, and drives a dedicated, commercially insured late-model black SUV rather than a personal vehicle. You get flat-rate pricing with no surge fees, the discretion and professionalism of a traditional limousine service, and the comfort of a full-size luxury SUV — not a rideshare app's nearest available driver.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "Is Posh Limousines of Atlanta licensed and insured?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Posh Limousines of Atlanta is fully licensed and commercially insured for ground transportation throughout Georgia. Every chauffeur is background-checked and professionally trained before being placed with clients, and every vehicle in our fleet is maintained to a strict executive-grade cleanliness and safety standard.",
+            },
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book transportation with Posh Limousines of Atlanta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can book directly from our website using the \"Book Now\" button, fill out the contact form, or call us at (470) 807-8572. We recommend booking at least 24 hours in advance, and earlier for weddings, proms, or high-demand weekends.",
+            },
+          },
+        ],
+      },
+    ],
   },
 
   "airport-transfers": {
