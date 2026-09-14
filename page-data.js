@@ -380,7 +380,7 @@ const pageData = {
   "formal-celebrations": {
     title: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta",
     description:
-      "Luxury black SUV transportation for Atlanta weddings, proms, and anniversaries. Arrive in style in a Lincoln Navigator, Chevy Suburban, or Tahoe. Rates starting at $150/hr.",
+      "Luxury black SUV transportation for Atlanta weddings, proms, and anniversaries. Arrive in style in a Lincoln Navigator, Chevy Suburban, or Tahoe. Rates starting at $82.50/hr.",
     canonical: "https://www.atlantaposhlimos.com/formal-celebrations",
     ogTitle: "Formal Celebrations, Weddings & Proms | Posh Limousines of Atlanta",
     ogDescription:
@@ -396,7 +396,7 @@ const pageData = {
         "@type": "Service",
         "name": "Formal Celebrations & Wedding Transportation",
         "description":
-          "Luxury black SUV transportation for Atlanta weddings, proms, and anniversary celebrations. Red carpet rollout, chilled amenities, and professional chauffeurs in executive attire. 3-hour minimum booking.",
+          "Luxury black SUV transportation for Atlanta weddings, proms, and anniversary celebrations. Red carpet rollout, chilled amenities, and professional chauffeurs in executive attire. 5-hour minimum booking.",
         "provider": {
           "@type": "LocalBusiness",
           "name": "Posh Limousines of Atlanta",
@@ -405,9 +405,9 @@ const pageData = {
         "areaServed": "Atlanta Metropolitan Area",
         "offers": {
           "@type": "Offer",
-          "price": "150",
+          "price": "82.50",
           "priceCurrency": "USD",
-          "description": "Starting hourly rate for formal celebration transportation",
+          "description": "Starting hourly rate for formal celebration transportation, 5-hour minimum booking",
         },
         "url": "https://www.atlantaposhlimos.com/formal-celebrations",
       },
@@ -446,7 +446,7 @@ const pageData = {
             "name": "What is the rate for formal celebration transportation?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Formal celebration packages start at $150 per hour with a minimum booking window. Pricing varies based on event duration, number of vehicles, and any custom requests such as decorations or special amenities. Contact us for a personalized quote for your event.",
+              "text": "Formal celebration packages start at $82.50 per hour with a 5-hour minimum booking. Pricing varies based on event duration, number of vehicles, and any custom requests such as decorations or special amenities. Contact us for a personalized quote for your event.",
             },
           },
           {
