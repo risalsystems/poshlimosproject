@@ -219,7 +219,7 @@
         <div class="container rates-cta__inner">
             <h2 class="rates-cta__heading">Ready to Reserve Your Chauffeur?</h2>
             <p class="rates-cta__body">
-                Book your luxury black SUV ride in advance. Schedule directly using our Calendly system or contact our dispatch office for custom itineraries.
+                Book your luxury black SUV ride in advance. Schedule directly using our online booking system or contact our dispatch office for custom itineraries.
             </p>
             <a href="index.html#contact" class="btn rates-cta__btn">Book Your Ride Now</a>
         </div>
@@ -679,8 +679,8 @@
 
         // ── Book This Trip ──────────────────────────────────────────────────────
         // Fires when the estimate panel book button is clicked.
-        // Sends to Calendly (with prefill) AND Web3Forms simultaneously so the
-        // client always gets a complete record even if the Calendly booking is
+        // Sends to Cal.com (with prefill) AND Web3Forms simultaneously so the
+        // client always gets a complete record even if the Cal.com booking is
         // abandoned.
         $bookBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -752,24 +752,26 @@
                     + (p.phone ? ' (' + p.phone + ')' : '');
             }).join(' | ') || 'Not provided';
 
-            // ── Calendly (prefill — a1–a8 must match the event's custom question order) ──
-            if (window.Calendly) {
-                Calendly.initPopupWidget({
-                    url: 'https://calendly.com/atlantaposhlimos/rate-inquiry',
-                    prefill: {
-                        name:  trip.primaryName,
+            // ── Cal.com (prefill via notes — swap in real custom-field slugs once configured) ──
+            if (window.Cal) {
+                var notes = [
+                    'Phone: ' + trip.primaryPhone,
+                    'Pickup: ' + trip.pickup,
+                    'Drop-off: ' + trip.dropoff,
+                    'Stops: ' + stopsText,
+                    'Date/Time: ' + trip.dateTime,
+                    'Estimated Fare: ' + trip.fareRange,
+                    'Add-ons: ' + addOnsText,
+                    'Referred By: ' + trip.referral,
+                    'Luggage: ' + (trip.luggage.parts.join(' ') || 'Not specified'),
+                ].join('\n');
+
+                Cal('modal', {
+                    calLink: 'atlantaposhlimos/initial-transportaion-consultation',
+                    config: {
+                        name: trip.primaryName,
                         email: trip.primaryEmail,
-                        customAnswers: {
-                            a1: trip.primaryPhone,
-                            a2: trip.pickup,
-                            a3: trip.dropoff,
-                            a4: stopsText,
-                            a5: trip.dateTime,
-                            a6: trip.fareRange,
-                            a7: addOnsText,
-                            a8: trip.referral,
-                            a9: trip.luggage.parts.join(' ') || '',
-                        },
+                        notes: notes,
                     },
                 });
             }
@@ -787,7 +789,7 @@
                     subject:           'Rate Inquiry: ' + trip.pickup + ' → ' + trip.dropoff,
                     from_name:         trip.primaryName,
                     email:             trip.primaryEmail,
-                    // ── Trip fields (match Calendly question order) ──
+                    // ── Trip fields ──
                     pickup_location:   trip.pickup,
                     final_destination: trip.dropoff,
                     additional_stops:  stopsText,
@@ -796,10 +798,10 @@
                     trip_add_ons:      addOnsText,
                     referred_by:       trip.referral,
                     luggage:           trip.luggage.parts.join(' ') || 'Not specified',
-                    // ── Extra detail not in Calendly ──
+                    // ── Extra detail not in Cal.com ──
                     passengers:        passText,
                 }),
-            }).catch(function () { /* silent — Calendly handled the handoff */ });
+            }).catch(function () { /* silent — Cal.com handled the handoff */ });
         }
 
         // Convert "HH:MM" 24-hr to "h:MM AM/PM" for the date/time string

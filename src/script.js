@@ -234,24 +234,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 // ==========================================================================
-// Open Calendly widget
-function openCalendly(type) {
-  const urls = {
-    home:           "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    airport:        "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    rates:          "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    formal:         "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    "safe-driver":  "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    corporate:      "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    casual:         "https://calendly.com/atlantaposhlimos/rate-inquiry",
-    "signature":    "https://calendly.com/atlantaposhlimos/rate-inquiry",
-  }
-  if (urls[type]) {
-    Calendly.initPopupWidget({
-      url: urls[type],
-    });
-    return false; // Prevent default link behavior
-  }
+// Open Cal.com popup widget
+function openCalendar() {
+  Cal("modal", {
+    calLink: "atlantaposhlimos/initial-transportaion-consultation",
+  });
 }
-window.openCalendly = openCalendly;
+window.openCalendar = openCalendar;
 
