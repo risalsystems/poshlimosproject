@@ -235,6 +235,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // ==========================================================================
 // Open Cal.com popup widget
+document.querySelectorAll('[data-open-calendar]').forEach(function (el) {
+  el.addEventListener('click', function(e) {
+    e.preventDefault();
+    openCalendar();
+  });
+});
+
 function openCalendar() {
   Cal("modal", {
     calLink: "atlantaposhlimos/initial-transportaion-consultation",
